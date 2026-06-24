@@ -1,0 +1,19 @@
+{
+  "total_analyzed": 2736,
+  "sentiment_counts": {
+    "positive": 1356,
+    "neutral": 1050,
+    "negative": 330
+  },
+  "emotion_counts": {
+    "neutral": 1050,
+    "satisfaction": 1356,
+    "frustration": 330
+  },
+  "total_pain_points": 330,
+  "total_feature_requests": 499,
+  "total_positive_feedback": 1356,
+  "total_negative_feedback": 330,
+  "total_jtbd": 925,
+  "analysis_timestamp": "2026-06-24T20:30:58.411977Z"
+}
