@@ -6,8 +6,8 @@ from unittest.mock import MagicMock
 # Adjust path to import src modules properly
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from cleaner import ReviewCleanerAgent, DataCleanerAgent
-from models import CleanedReviewOutput
+from cleaner import ReviewCleanerAgent, DataCleanerAgent  # type: ignore[import-not-found]
+from models import CleanedReviewOutput  # type: ignore[import-not-found]
 
 
 class TestCleanerAgent(unittest.TestCase):
@@ -15,6 +15,7 @@ class TestCleanerAgent(unittest.TestCase):
     def test_cleaner_agent_fallback(self):
         # Create cleaner without API Key
         cleaner = ReviewCleanerAgent(api_key=None)
+        cleaner.client = None  # Ensure client is None to run fallback path
         raw_text = "Hallo world!!!"
         result = cleaner.clean_review(raw_text)
         self.assertEqual(result.cleaned_text, raw_text)

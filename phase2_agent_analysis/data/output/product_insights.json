@@ -1,0 +1,292 @@
+{
+  "generated_at": "2026-06-24T21:23:28.983104+00:00",
+  "summary": {
+    "total_insights": 16,
+    "top_frustrations_count": 5,
+    "feature_requests_count": 5,
+    "quick_wins_count": 3,
+    "long_term_opportunities_count": 3
+  },
+  "top_frustrations": [
+    {
+      "title": "App Crashes and Performance Issues",
+      "description": "Frequent app crashes and performance issues are severely impacting user experience, leading to frustration and potential churn.",
+      "category": "Top Frustration",
+      "severity": 10,
+      "frequency": 18,
+      "impact": 10,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers",
+        "Power Users"
+      ],
+      "supporting_evidence": [
+        "i payed for premium and yet the app glitches and kicks me out and it annoys me deeply sometimes when i enter the app..its plain black with the exit button.",
+        "crashing whenever playing music with the song in full screen, opposed to the small banner window at the bottom of the screen is the only way to use the app."
+      ],
+      "recommended_action": "Invest in improving app stability and performance to minimize crashes and ensure a seamless user experience."
+    },
+    {
+      "title": "Excessive Ad Frequency on Free Tier",
+      "description": "The high frequency of ads on the free tier is frustrating users, making the experience unbearable for many and driving them to consider alternative services.",
+      "category": "Top Frustration",
+      "severity": 10,
+      "frequency": 15,
+      "impact": 9,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "EVERYTHING ASKS FOR A PREMIUM. I BOUGHT A PREMIUM... NOW I'M GETTING ADS TO BUY SOME PLATINUM PREMIUM",
+        "Best music streaming service. The ads are horrible though, I get 3-5 ads every 2 songs."
+      ],
+      "recommended_action": "Review ad frequency and consider introducing ad-free intervals or more engaging ad formats to reduce user frustration."
+    },
+    {
+      "title": "Limited Features on Free Tier",
+      "description": "The limited features available on the free tier, such as the inability to choose specific songs or skip tracks, are frustrating users and pushing them towards premium or alternative services.",
+      "category": "Top Frustration",
+      "severity": 9,
+      "frequency": 12,
+      "impact": 8,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "the free version is awful. you have to pay to get a basic, average experience.",
+        "cant even do bare minimum features such as skipping songs as much as you'd like."
+      ],
+      "recommended_action": "Consider introducing more features to the free tier or offering more flexible premium plans to cater to a wider range of users."
+    },
+    {
+      "title": "Poor Recommendation Quality",
+      "description": "Users are dissatisfied with the current recommendation algorithms, finding them repetitive or not aligned with their tastes, which hampers discovery and enjoyment.",
+      "category": "Top Frustration",
+      "severity": 8,
+      "frequency": 9,
+      "impact": 7,
+      "affected_segments": [
+        "Casual Listeners",
+        "Power Users"
+      ],
+      "supporting_evidence": [
+        "I used to love spotify, my music app of choice. Now if I want to play some music, start some playlists created by Spotify - I need to scroll through all suggested podcasts.",
+        "very bad experience far now. can't choose songs as our preference, needs subscription."
+      ],
+      "recommended_action": "Enhance recommendation algorithms to provide more personalized and diverse content suggestions."
+    },
+    {
+      "title": "Inconsistent Offline Listening Experience",
+      "description": "Users are experiencing inconsistencies with offline listening, including issues with downloads, availability of content, and playback quality, which affects their overall satisfaction.",
+      "category": "Top Frustration",
+      "severity": 7,
+      "frequency": 6,
+      "impact": 6,
+      "affected_segments": [
+        "Free Users",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "downloading of this app is very slow in low devices when wi-fi is also fast",
+        "membership cost high bcoz alot of bootleg etc versions missing hd quality bad of 70-90a song local artista missing and their concerta also"
+      ],
+      "recommended_action": "Improve offline listening by addressing download issues, expanding available content, and ensuring consistent playback quality."
+    }
+  ],
+  "feature_requests": [
+    {
+      "title": "Fix App Crashes and Bugs",
+      "description": "Users across various segments are experiencing frequent app crashes and bugs, which severely hampers their ability to enjoy the service.",
+      "category": "Feature Request",
+      "severity": 9,
+      "frequency": 12,
+      "impact": 10,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers",
+        "Power Users"
+      ],
+      "supporting_evidence": [
+        "my app has been crashing nonstop since the new update, it won't even stay open for my the 15 seconds at a time.",
+        "crashes every 5 seconds, will not stay running no matter what i try."
+      ],
+      "recommended_action": "Prioritize bug fixes and stability improvements to ensure a smooth user experience."
+    },
+    {
+      "title": "Improve Free Tier Experience",
+      "description": "Users are frustrated with the limited features and excessive ads on the free tier, requesting a more balanced experience without the need for a premium subscription.",
+      "category": "Feature Request",
+      "severity": 8,
+      "frequency": 10,
+      "impact": 9,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "too many adds bruv, i get like 6 adds in an hour but, good update. at least make nonpremium people have something better",
+        "restricting so much on free version should be a crime to make u pay for subscription.. i will be deleting this app"
+      ],
+      "recommended_action": "Introduce ad-free intervals or rewards for engaging with ads to enhance the free tier experience."
+    },
+    {
+      "title": "Enhance Premium Subscription Value",
+      "description": "Premium subscribers feel that the current offerings do not justify the cost, seeking more features or better quality to match their investment.",
+      "category": "Feature Request",
+      "severity": 7,
+      "frequency": 8,
+      "impact": 8,
+      "affected_segments": [
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "continuing to charge more and then when adding audio books caps it to 15hrs a month, with all the price hikes giving a little something back would have been nice",
+        "best apo for music i do wish premium wasnt so expensive tho"
+      ],
+      "recommended_action": "Review and adjust premium pricing strategy, considering adding more exclusive content or features."
+    },
+    {
+      "title": "Improve Discovery Features",
+      "description": "Users are looking for better ways to discover new music and podcasts, suggesting improvements to recommendation algorithms and discovery features.",
+      "category": "Feature Request",
+      "severity": 6,
+      "frequency": 6,
+      "impact": 7,
+      "affected_segments": [
+        "Casual Listeners",
+        "Power Users"
+      ],
+      "supporting_evidence": [
+        "now crashes when i try to search, and when i select a new album. fresh install, and cleared cache.",
+        "how is it possible that after 2 decades you don't have an option for random play from any song from the artist in my library?"
+      ],
+      "recommended_action": "Enhance discovery features by improving recommendation algorithms and introducing new ways to explore content."
+    },
+    {
+      "title": "Enhance Offline Listening Experience",
+      "description": "Users, especially those in areas with poor internet connectivity, are seeking improvements to offline listening capabilities, including better download management and more content availability.",
+      "category": "Feature Request",
+      "severity": 5,
+      "frequency": 5,
+      "impact": 6,
+      "affected_segments": [
+        "Free Users",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "downloading of this app is very slow in low devices when wi-fi is also fast",
+        "membership cost high bcoz alot of bootleg etc versions missing hd quality bad of 70-90a song local artista missing and their concerta also"
+      ],
+      "recommended_action": "Optimize offline listening by improving download speeds, expanding available content, and enhancing download management features."
+    }
+  ],
+  "quick_wins": [
+    {
+      "title": "Stability and Performance Fixes",
+      "description": "Addressing frequent app crashes and performance issues is crucial for improving user experience and reducing frustration, potentially leading to increased retention and positive word-of-mouth.",
+      "category": "Quick Win",
+      "severity": 10,
+      "frequency": 15,
+      "impact": 10,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers",
+        "Power Users"
+      ],
+      "supporting_evidence": [
+        "my app has been crashing nonstop since the new update, it won't even stay open for my the 15 seconds at a time.",
+        "crashes every 5 seconds, will not stay running no matter what i try."
+      ],
+      "recommended_action": "Prioritize and implement fixes for the most common crashes and performance issues to ensure a stable app experience."
+    },
+    {
+      "title": "Optimize Ad Experience on Free Tier",
+      "description": "Implementing ad-free intervals or more engaging ad formats could significantly improve user experience on the free tier, reducing frustration and increasing engagement.",
+      "category": "Quick Win",
+      "severity": 8,
+      "frequency": 10,
+      "impact": 9,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "too many adds bruv, i get like 6 adds in an hour but, good update. at least make nonpremium people have something better",
+        "restricting so much on free version should be a crime to make u pay for subscription.. i will be deleting this app"
+      ],
+      "recommended_action": "Introduce ad-free intervals or rewards for engaging with ads to enhance the free tier experience."
+    },
+    {
+      "title": "Enhance Discovery Features",
+      "description": "Improving discovery features, such as recommendation algorithms and search functionality, could lead to a more engaging experience, encouraging users to explore more content and stay within the app.",
+      "category": "Quick Win",
+      "severity": 7,
+      "frequency": 8,
+      "impact": 8,
+      "affected_segments": [
+        "Casual Listeners",
+        "Power Users"
+      ],
+      "supporting_evidence": [
+        "now crashes when i try to search, and when i select a new album. fresh install, and cleared cache.",
+        "how is it possible that after 2 decades you don't have an option for random play from any song from the artist in my library?"
+      ],
+      "recommended_action": "Update recommendation algorithms and introduce new discovery features to help users find content that matches their interests."
+    }
+  ],
+  "long_term_opportunities": [
+    {
+      "title": "Advanced Music Discovery Platform",
+      "description": "Creating an advanced music discovery platform that incorporates AI-driven recommendations, user-generated playlists, and social features could revolutionize how users interact with music, setting a new standard in the industry.",
+      "category": "Long-term Opportunity",
+      "severity": 5,
+      "frequency": 4,
+      "impact": 9,
+      "affected_segments": [
+        "Casual Listeners",
+        "Power Users"
+      ],
+      "supporting_evidence": [
+        "I used to love spotify, my music app of choice. Now if I want to play some music, start some playlists created by Spotify - I need to scroll through all suggested podcasts.",
+        "very bad experience far now. can't choose songs as our preference, needs subscription."
+      ],
+      "recommended_action": "Develop a comprehensive music discovery platform that integrates advanced recommendation algorithms, social sharing, and community features."
+    },
+    {
+      "title": "Personalized Pricing Models",
+      "description": "Developing personalized pricing models based on user behavior, preferences, and usage patterns could offer a more tailored and potentially more appealing proposition to a wider range of users.",
+      "category": "Long-term Opportunity",
+      "severity": 6,
+      "frequency": 5,
+      "impact": 8,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "continuing to charge more and then when adding audio books caps it to 15hrs a month, with all the price hikes giving a little something back would have been nice",
+        "best apo for music i do wish premium wasnt so expensive tho"
+      ],
+      "recommended_action": "Invest in developing personalized pricing models that cater to individual user needs and preferences."
+    },
+    {
+      "title": "Enhanced Offline Capabilities",
+      "description": "Expanding offline capabilities to include more content, improving download management, and ensuring seamless playback could significantly enhance the user experience, especially for those in areas with limited internet connectivity.",
+      "category": "Long-term Opportunity",
+      "severity": 4,
+      "frequency": 3,
+      "impact": 7,
+      "affected_segments": [
+        "Free Users",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "downloading of this app is very slow in low devices when wi-fi is also fast",
+        "membership cost high bcoz alot of bootleg etc versions missing hd quality bad of 70-90a song local artista missing and their concerta also"
+      ],
+      "recommended_action": "Invest in enhancing offline capabilities, including expanding available content, improving download speeds, and ensuring consistent playback quality."
+    }
+  ]
+}

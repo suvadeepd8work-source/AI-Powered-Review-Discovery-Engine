@@ -1,0 +1,391 @@
+2026-06-25 02:47:29,972 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:47:30,336 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:47:30,720 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:47:30,721 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:47:30,722 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:47:30,722 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:47:33,722 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:47:33,723 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:47:33,723 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:47:36,724 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:47:36,724 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:47:36,725 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:47:37,124 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:47:37,126 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:47:37,126 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:47:37,126 - INFO - Received product insights response in 0.00s.
+2026-06-25 02:47:37,127 - INFO - Top pain points identified: 4
+2026-06-25 02:47:37,127 - INFO - Top feature requests identified: 3
+2026-06-25 02:47:37,127 - INFO -   Most frequent pain points:
+2026-06-25 02:47:37,127 - INFO -     #   2x — app crashes
+2026-06-25 02:47:37,127 - INFO -     #   2x — too many ads
+2026-06-25 02:47:37,128 - INFO -     #   1x — slow loading
+2026-06-25 02:47:37,128 - INFO -     #   1x — shuffle broken
+2026-06-25 02:47:37,128 - INFO -   Most requested features:
+2026-06-25 02:47:37,128 - INFO -     #   2x — dark mode
+2026-06-25 02:47:37,128 - INFO -     #   2x — sleep timer
+2026-06-25 02:47:37,128 - INFO -     #   1x — crossfade
+2026-06-25 02:47:37,129 - INFO - Top pain points identified: 4
+2026-06-25 02:47:37,129 - INFO - Top feature requests identified: 3
+2026-06-25 02:47:37,129 - INFO -   Most frequent pain points:
+2026-06-25 02:47:37,129 - INFO -     #   2x — app crashes
+2026-06-25 02:47:37,129 - INFO -     #   2x — too many ads
+2026-06-25 02:47:37,129 - INFO -     #   1x — slow loading
+2026-06-25 02:47:37,129 - INFO -     #   1x — shuffle broken
+2026-06-25 02:47:37,129 - INFO -   Most requested features:
+2026-06-25 02:47:37,129 - INFO -     #   2x — dark mode
+2026-06-25 02:47:37,129 - INFO -     #   2x — sleep timer
+2026-06-25 02:47:37,130 - INFO -     #   1x — crossfade
+2026-06-25 02:47:37,131 - INFO - Top pain points identified: 4
+2026-06-25 02:47:37,131 - INFO - Top feature requests identified: 3
+2026-06-25 02:47:37,131 - INFO -   Most frequent pain points:
+2026-06-25 02:47:37,131 - INFO -     #   2x — app crashes
+2026-06-25 02:47:37,131 - INFO -     #   2x — too many ads
+2026-06-25 02:47:37,131 - INFO -     #   1x — slow loading
+2026-06-25 02:47:37,131 - INFO -     #   1x — shuffle broken
+2026-06-25 02:47:37,131 - INFO -   Most requested features:
+2026-06-25 02:47:37,132 - INFO -     #   2x — dark mode
+2026-06-25 02:47:37,132 - INFO -     #   2x — sleep timer
+2026-06-25 02:47:37,132 - INFO -     #   1x — crossfade
+2026-06-25 02:48:27,406 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:48:27,772 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:48:28,089 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:48:28,091 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:48:28,091 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:48:28,091 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:48:31,092 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:48:31,093 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:48:31,093 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:48:34,094 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:48:34,095 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:48:34,095 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:48:34,512 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:48:34,519 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:48:34,519 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:48:34,520 - INFO - Received product insights response in 0.00s.
+2026-06-25 02:48:34,522 - INFO - Top pain points identified: 4
+2026-06-25 02:48:34,522 - INFO - Top feature requests identified: 3
+2026-06-25 02:48:34,522 - INFO -   Most frequent pain points:
+2026-06-25 02:48:34,522 - INFO -     #   2x — app crashes
+2026-06-25 02:48:34,522 - INFO -     #   2x — too many ads
+2026-06-25 02:48:34,523 - INFO -     #   1x — slow loading
+2026-06-25 02:48:34,523 - INFO -     #   1x — shuffle broken
+2026-06-25 02:48:34,523 - INFO -   Most requested features:
+2026-06-25 02:48:34,523 - INFO -     #   2x — dark mode
+2026-06-25 02:48:34,523 - INFO -     #   2x — sleep timer
+2026-06-25 02:48:34,523 - INFO -     #   1x — crossfade
+2026-06-25 02:48:34,524 - INFO - Top pain points identified: 4
+2026-06-25 02:48:34,525 - INFO - Top feature requests identified: 3
+2026-06-25 02:48:34,525 - INFO -   Most frequent pain points:
+2026-06-25 02:48:34,525 - INFO -     #   2x — app crashes
+2026-06-25 02:48:34,525 - INFO -     #   2x — too many ads
+2026-06-25 02:48:34,525 - INFO -     #   1x — slow loading
+2026-06-25 02:48:34,525 - INFO -     #   1x — shuffle broken
+2026-06-25 02:48:34,525 - INFO -   Most requested features:
+2026-06-25 02:48:34,525 - INFO -     #   2x — dark mode
+2026-06-25 02:48:34,525 - INFO -     #   2x — sleep timer
+2026-06-25 02:48:34,525 - INFO -     #   1x — crossfade
+2026-06-25 02:48:34,527 - INFO - Top pain points identified: 4
+2026-06-25 02:48:34,527 - INFO - Top feature requests identified: 3
+2026-06-25 02:48:34,527 - INFO -   Most frequent pain points:
+2026-06-25 02:48:34,527 - INFO -     #   2x — app crashes
+2026-06-25 02:48:34,527 - INFO -     #   2x — too many ads
+2026-06-25 02:48:34,527 - INFO -     #   1x — slow loading
+2026-06-25 02:48:34,527 - INFO -     #   1x — shuffle broken
+2026-06-25 02:48:34,527 - INFO -   Most requested features:
+2026-06-25 02:48:34,528 - INFO -     #   2x — dark mode
+2026-06-25 02:48:34,528 - INFO -     #   2x — sleep timer
+2026-06-25 02:48:34,528 - INFO -     #   1x — crossfade
+2026-06-25 02:50:40,101 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:50:40,374 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:50:40,651 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:50:40,651 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:50:40,652 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:50:40,652 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:50:43,652 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:50:43,652 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:50:43,652 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:50:46,653 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:50:46,653 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:50:46,653 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:50:46,915 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:50:46,916 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:50:46,916 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:50:46,916 - INFO - Received product insights response in 0.00s.
+2026-06-25 02:50:46,916 - INFO - Top pain points identified: 4
+2026-06-25 02:50:46,917 - INFO - Top feature requests identified: 3
+2026-06-25 02:50:46,917 - INFO -   Most frequent pain points:
+2026-06-25 02:50:46,917 - INFO -     #   2x — app crashes
+2026-06-25 02:50:46,917 - INFO -     #   2x — too many ads
+2026-06-25 02:50:46,917 - INFO -     #   1x — slow loading
+2026-06-25 02:50:46,917 - INFO -     #   1x — shuffle broken
+2026-06-25 02:50:46,917 - INFO -   Most requested features:
+2026-06-25 02:50:46,917 - INFO -     #   2x — dark mode
+2026-06-25 02:50:46,917 - INFO -     #   2x — sleep timer
+2026-06-25 02:50:46,917 - INFO -     #   1x — crossfade
+2026-06-25 02:50:46,923 - INFO - Top pain points identified: 4
+2026-06-25 02:50:46,923 - INFO - Top feature requests identified: 3
+2026-06-25 02:50:46,923 - INFO -   Most frequent pain points:
+2026-06-25 02:50:46,923 - INFO -     #   2x — app crashes
+2026-06-25 02:50:46,923 - INFO -     #   2x — too many ads
+2026-06-25 02:50:46,923 - INFO -     #   1x — slow loading
+2026-06-25 02:50:46,923 - INFO -     #   1x — shuffle broken
+2026-06-25 02:50:46,923 - INFO -   Most requested features:
+2026-06-25 02:50:46,923 - INFO -     #   2x — dark mode
+2026-06-25 02:50:46,923 - INFO -     #   2x — sleep timer
+2026-06-25 02:50:46,923 - INFO -     #   1x — crossfade
+2026-06-25 02:50:46,924 - INFO - Top pain points identified: 4
+2026-06-25 02:50:46,924 - INFO - Top feature requests identified: 3
+2026-06-25 02:50:46,924 - INFO -   Most frequent pain points:
+2026-06-25 02:50:46,924 - INFO -     #   2x — app crashes
+2026-06-25 02:50:46,924 - INFO -     #   2x — too many ads
+2026-06-25 02:50:46,924 - INFO -     #   1x — slow loading
+2026-06-25 02:50:46,924 - INFO -     #   1x — shuffle broken
+2026-06-25 02:50:46,924 - INFO -   Most requested features:
+2026-06-25 02:50:46,924 - INFO -     #   2x — dark mode
+2026-06-25 02:50:46,924 - INFO -     #   2x — sleep timer
+2026-06-25 02:50:46,924 - INFO -     #   1x — crossfade
+2026-06-25 02:52:05,008 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:52:05,279 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:52:05,556 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:52:05,557 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:52:05,557 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:52:05,562 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:52:08,563 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:52:08,563 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:52:08,563 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:52:11,563 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:52:11,564 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:52:11,564 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:52:11,881 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:52:11,882 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:52:11,882 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:52:11,882 - INFO - Received product insights response in 0.00s.
+2026-06-25 02:52:11,883 - INFO - Top pain points identified: 4
+2026-06-25 02:52:11,883 - INFO - Top feature requests identified: 3
+2026-06-25 02:52:11,883 - INFO -   Most frequent pain points:
+2026-06-25 02:52:11,883 - INFO -     #   2x — app crashes
+2026-06-25 02:52:11,884 - INFO -     #   2x — too many ads
+2026-06-25 02:52:11,884 - INFO -     #   1x — slow loading
+2026-06-25 02:52:11,884 - INFO -     #   1x — shuffle broken
+2026-06-25 02:52:11,884 - INFO -   Most requested features:
+2026-06-25 02:52:11,884 - INFO -     #   2x — dark mode
+2026-06-25 02:52:11,884 - INFO -     #   2x — sleep timer
+2026-06-25 02:52:11,884 - INFO -     #   1x — crossfade
+2026-06-25 02:52:11,885 - INFO - Top pain points identified: 4
+2026-06-25 02:52:11,885 - INFO - Top feature requests identified: 3
+2026-06-25 02:52:11,886 - INFO -   Most frequent pain points:
+2026-06-25 02:52:11,886 - INFO -     #   2x — app crashes
+2026-06-25 02:52:11,886 - INFO -     #   2x — too many ads
+2026-06-25 02:52:11,886 - INFO -     #   1x — slow loading
+2026-06-25 02:52:11,886 - INFO -     #   1x — shuffle broken
+2026-06-25 02:52:11,886 - INFO -   Most requested features:
+2026-06-25 02:52:11,886 - INFO -     #   2x — dark mode
+2026-06-25 02:52:11,886 - INFO -     #   2x — sleep timer
+2026-06-25 02:52:11,886 - INFO -     #   1x — crossfade
+2026-06-25 02:52:11,887 - INFO - Top pain points identified: 4
+2026-06-25 02:52:11,887 - INFO - Top feature requests identified: 3
+2026-06-25 02:52:11,887 - INFO -   Most frequent pain points:
+2026-06-25 02:52:11,887 - INFO -     #   2x — app crashes
+2026-06-25 02:52:11,887 - INFO -     #   2x — too many ads
+2026-06-25 02:52:11,887 - INFO -     #   1x — slow loading
+2026-06-25 02:52:11,887 - INFO -     #   1x — shuffle broken
+2026-06-25 02:52:11,888 - INFO -   Most requested features:
+2026-06-25 02:52:11,888 - INFO -     #   2x — dark mode
+2026-06-25 02:52:11,888 - INFO -     #   2x — sleep timer
+2026-06-25 02:52:11,888 - INFO -     #   1x — crossfade
+2026-06-25 02:52:46,127 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:52:46,128 - INFO - Loading input data for Product Insight Generator...
+2026-06-25 02:52:46,166 - INFO -   Loaded 2736 analyzed reviews.
+2026-06-25 02:52:46,174 - INFO -   Loaded 11 theme clusters.
+2026-06-25 02:52:46,175 - INFO -   Loaded 8 user segments.
+2026-06-25 02:52:46,180 - INFO - Top pain points identified: 30
+2026-06-25 02:52:46,180 - INFO - Top feature requests identified: 30
+2026-06-25 02:52:46,180 - INFO -   Most frequent pain points:
+2026-06-25 02:52:46,180 - INFO -     #   1x — the free version is awful. you have to pay to get a basic, average exp
+2026-06-25 02:52:46,180 - INFO -     #   1x — crashing whenever playing music with the song in full screen, opposed 
+2026-06-25 02:52:46,180 - INFO -     #   1x — my app has been crashing nonstop since the new update, it won't even s
+2026-06-25 02:52:46,180 - INFO -     #   1x — fix your app we pay for this why does it keep crashing when i open the
+2026-06-25 02:52:46,181 - INFO -     #   1x — for some reason, the crossfade keeps going on my device, and it's arou
+2026-06-25 02:52:46,181 - INFO -   Most requested features:
+2026-06-25 02:52:46,181 - INFO -     #   1x — continuing to charge more and then when adding audio books caps it to 
+2026-06-25 02:52:46,181 - INFO -     #   1x — i payed for premium and yet the app glitches and kicks me out and it a
+2026-06-25 02:52:46,181 - INFO -     #   1x — so i was just trying to draw and i thought i should listen to some mus
+2026-06-25 02:52:46,181 - INFO -     #   1x — too many adds bruv, i get like 6 adds in an hour but, good update. at 
+2026-06-25 02:52:46,181 - INFO -     #   1x — restricting so much on free version should be a crime to make u pay fo
+2026-06-25 02:52:46,181 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:52:46,181 - INFO -   Themes: 11 | Segments: 8 | Pain Points: 30 | Feature Requests: 30
+2026-06-25 02:52:46,907 - ERROR - Error during Groq API product insights call: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01knz50tx8ee6sby5xdrmvs4wx` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12341, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2026-06-25 02:52:49,907 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:52:49,908 - INFO -   Themes: 11 | Segments: 8 | Pain Points: 30 | Feature Requests: 30
+2026-06-25 02:52:50,081 - ERROR - Error during Groq API product insights call: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01knz50tx8ee6sby5xdrmvs4wx` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12341, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2026-06-25 02:52:53,082 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:52:53,083 - INFO -   Themes: 11 | Segments: 8 | Pain Points: 30 | Feature Requests: 30
+2026-06-25 02:52:53,312 - ERROR - Error during Groq API product insights call: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01knz50tx8ee6sby5xdrmvs4wx` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12341, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2026-06-25 02:52:53,312 - ERROR - All retries failed for insight generation: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01knz50tx8ee6sby5xdrmvs4wx` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12341, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}. Using fallback insights.
+2026-06-25 02:52:53,315 - INFO - 
+Product insights saved to phase2_agent_analysis\data\output\product_insights.json
+2026-06-25 02:52:53,315 - INFO - 
+========================================================
+2026-06-25 02:52:53,316 - INFO -   PRODUCT INSIGHT GENERATOR - SUMMARY
+2026-06-25 02:52:53,316 - INFO - ========================================================
+2026-06-25 02:52:53,316 - INFO -   Category                     Count  Avg Severity  Avg Impact
+2026-06-25 02:52:53,316 - INFO -   ------------------------------------------------------
+2026-06-25 02:52:53,316 - INFO -   Top Frustrations                 5           8.6         8.2
+2026-06-25 02:52:53,316 - INFO -   Feature Requests                 5           5.2         7.2
+2026-06-25 02:52:53,316 - INFO -   Quick Wins                       3           4.7         6.7
+2026-06-25 02:52:53,316 - INFO -   Long-term Opportunities          3           7.3         9.7
+2026-06-25 02:52:53,316 - INFO - ========================================================
+2026-06-25 02:52:53,316 - INFO - 
+  TOP 3 PRIORITY INSIGHTS (severity × impact):
+2026-06-25 02:52:53,316 - INFO -   1. [Top Frustration] App crashes and freezes during active playback
+2026-06-25 02:52:53,316 - INFO -      Severity=10 | Impact=9 | Frequency=1
+2026-06-25 02:52:53,316 - INFO -   2. [Long-term Opportunity] Deep platform stability and performance initiative
+2026-06-25 02:52:53,316 - INFO -      Severity=9 | Impact=10 | Frequency=1
+2026-06-25 02:52:53,316 - INFO -   3. [Top Frustration] Excessive advertisement frequency on free tier
+2026-06-25 02:52:53,317 - INFO -      Severity=9 | Impact=8 | Frequency=1
+2026-06-25 02:52:53,317 - INFO - ========================================================
+
+2026-06-25 02:53:20,240 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:53:20,241 - INFO - Loading input data for Product Insight Generator...
+2026-06-25 02:53:20,299 - INFO -   Loaded 2736 analyzed reviews.
+2026-06-25 02:53:20,306 - INFO -   Loaded 11 theme clusters.
+2026-06-25 02:53:20,307 - INFO -   Loaded 8 user segments.
+2026-06-25 02:53:20,314 - INFO - Top pain points identified: 15
+2026-06-25 02:53:20,314 - INFO - Top feature requests identified: 15
+2026-06-25 02:53:20,314 - INFO -   Most frequent pain points:
+2026-06-25 02:53:20,315 - INFO -     #   1x — the free version is awful. you have to pay to get a basic, average exp
+2026-06-25 02:53:20,315 - INFO -     #   1x — crashing whenever playing music with the song in full screen, opposed 
+2026-06-25 02:53:20,315 - INFO -     #   1x — my app has been crashing nonstop since the new update, it won't even s
+2026-06-25 02:53:20,315 - INFO -     #   1x — fix your app we pay for this why does it keep crashing when i open the
+2026-06-25 02:53:20,315 - INFO -     #   1x — for some reason, the crossfade keeps going on my device, and it's arou
+2026-06-25 02:53:20,315 - INFO -   Most requested features:
+2026-06-25 02:53:20,315 - INFO -     #   1x — continuing to charge more and then when adding audio books caps it to 
+2026-06-25 02:53:20,315 - INFO -     #   1x — i payed for premium and yet the app glitches and kicks me out and it a
+2026-06-25 02:53:20,315 - INFO -     #   1x — so i was just trying to draw and i thought i should listen to some mus
+2026-06-25 02:53:20,315 - INFO -     #   1x — too many adds bruv, i get like 6 adds in an hour but, good update. at 
+2026-06-25 02:53:20,315 - INFO -     #   1x — restricting so much on free version should be a crime to make u pay fo
+2026-06-25 02:53:20,316 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:53:20,316 - INFO -   Themes: 11 | Segments: 8 | Pain Points: 15 | Feature Requests: 15
+2026-06-25 02:53:28,978 - INFO - Received product insights response in 8.66s.
+2026-06-25 02:53:28,986 - INFO - 
+Product insights saved to phase2_agent_analysis\data\output\product_insights.json
+2026-06-25 02:53:28,986 - INFO - 
+========================================================
+2026-06-25 02:53:28,986 - INFO -   PRODUCT INSIGHT GENERATOR - SUMMARY
+2026-06-25 02:53:28,986 - INFO - ========================================================
+2026-06-25 02:53:28,986 - INFO -   Category                     Count  Avg Severity  Avg Impact
+2026-06-25 02:53:28,986 - INFO -   ------------------------------------------------------
+2026-06-25 02:53:28,986 - INFO -   Top Frustrations                 5           8.8         8.0
+2026-06-25 02:53:28,986 - INFO -   Feature Requests                 5           7.0         8.0
+2026-06-25 02:53:28,986 - INFO -   Quick Wins                       3           8.3         9.0
+2026-06-25 02:53:28,987 - INFO -   Long-term Opportunities          3           5.0         8.0
+2026-06-25 02:53:28,987 - INFO - ========================================================
+2026-06-25 02:53:28,987 - INFO - 
+  TOP 3 PRIORITY INSIGHTS (severity × impact):
+2026-06-25 02:53:28,987 - INFO -   1. [Top Frustration] App Crashes and Performance Issues
+2026-06-25 02:53:28,987 - INFO -      Severity=10 | Impact=10 | Frequency=18
+2026-06-25 02:53:28,987 - INFO -   2. [Quick Win] Stability and Performance Fixes
+2026-06-25 02:53:28,987 - INFO -      Severity=10 | Impact=10 | Frequency=15
+2026-06-25 02:53:28,987 - INFO -   3. [Top Frustration] Excessive Ad Frequency on Free Tier
+2026-06-25 02:53:28,987 - INFO -      Severity=10 | Impact=9 | Frequency=15
+2026-06-25 02:53:28,987 - INFO - ========================================================
+
+2026-06-25 02:56:40,831 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:56:41,163 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:56:41,500 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:56:41,501 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:56:41,502 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:56:41,502 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:56:44,502 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:56:44,503 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:56:44,503 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:56:47,503 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:56:47,503 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:56:47,504 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 02:56:47,897 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 02:56:47,898 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 02:56:47,898 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 02:56:47,899 - INFO - Received product insights response in 0.00s.
+2026-06-25 02:56:47,899 - INFO - Top pain points identified: 4
+2026-06-25 02:56:47,899 - INFO - Top feature requests identified: 3
+2026-06-25 02:56:47,899 - INFO -   Most frequent pain points:
+2026-06-25 02:56:47,900 - INFO -     #   2x — app crashes
+2026-06-25 02:56:47,900 - INFO -     #   2x — too many ads
+2026-06-25 02:56:47,900 - INFO -     #   1x — slow loading
+2026-06-25 02:56:47,900 - INFO -     #   1x — shuffle broken
+2026-06-25 02:56:47,900 - INFO -   Most requested features:
+2026-06-25 02:56:47,900 - INFO -     #   2x — dark mode
+2026-06-25 02:56:47,900 - INFO -     #   2x — sleep timer
+2026-06-25 02:56:47,900 - INFO -     #   1x — crossfade
+2026-06-25 02:56:47,909 - INFO - Top pain points identified: 4
+2026-06-25 02:56:47,909 - INFO - Top feature requests identified: 3
+2026-06-25 02:56:47,909 - INFO -   Most frequent pain points:
+2026-06-25 02:56:47,909 - INFO -     #   2x — app crashes
+2026-06-25 02:56:47,909 - INFO -     #   2x — too many ads
+2026-06-25 02:56:47,910 - INFO -     #   1x — slow loading
+2026-06-25 02:56:47,910 - INFO -     #   1x — shuffle broken
+2026-06-25 02:56:47,910 - INFO -   Most requested features:
+2026-06-25 02:56:47,910 - INFO -     #   2x — dark mode
+2026-06-25 02:56:47,910 - INFO -     #   2x — sleep timer
+2026-06-25 02:56:47,910 - INFO -     #   1x — crossfade
+2026-06-25 02:56:47,911 - INFO - Top pain points identified: 4
+2026-06-25 02:56:47,911 - INFO - Top feature requests identified: 3
+2026-06-25 02:56:47,911 - INFO -   Most frequent pain points:
+2026-06-25 02:56:47,911 - INFO -     #   2x — app crashes
+2026-06-25 02:56:47,911 - INFO -     #   2x — too many ads
+2026-06-25 02:56:47,911 - INFO -     #   1x — slow loading
+2026-06-25 02:56:47,912 - INFO -     #   1x — shuffle broken
+2026-06-25 02:56:47,912 - INFO -   Most requested features:
+2026-06-25 02:56:47,912 - INFO -     #   2x — dark mode
+2026-06-25 02:56:47,912 - INFO -     #   2x — sleep timer
+2026-06-25 02:56:47,912 - INFO -     #   1x — crossfade
+2026-06-25 03:08:25,817 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 03:08:26,125 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 03:08:26,388 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 03:08:26,389 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 03:08:26,389 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 03:08:26,389 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 03:08:29,391 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 03:08:29,391 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 03:08:29,391 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 03:08:32,392 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 03:08:32,392 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 03:08:32,392 - ERROR - Error during Groq API product insights call: 503 Service Unavailable
+2026-06-25 03:08:32,838 - INFO - Groq client initialized for Product Insight Generation.
+2026-06-25 03:08:32,839 - INFO - Sending synthesized data to Groq API for product insight generation...
+2026-06-25 03:08:32,839 - INFO -   Themes: 2 | Segments: 2 | Pain Points: 1 | Feature Requests: 1
+2026-06-25 03:08:32,839 - INFO - Received product insights response in 0.00s.
+2026-06-25 03:08:32,840 - INFO - Top pain points identified: 4
+2026-06-25 03:08:32,840 - INFO - Top feature requests identified: 3
+2026-06-25 03:08:32,840 - INFO -   Most frequent pain points:
+2026-06-25 03:08:32,840 - INFO -     #   2x — app crashes
+2026-06-25 03:08:32,841 - INFO -     #   2x — too many ads
+2026-06-25 03:08:32,841 - INFO -     #   1x — slow loading
+2026-06-25 03:08:32,841 - INFO -     #   1x — shuffle broken
+2026-06-25 03:08:32,841 - INFO -   Most requested features:
+2026-06-25 03:08:32,841 - INFO -     #   2x — dark mode
+2026-06-25 03:08:32,842 - INFO -     #   2x — sleep timer
+2026-06-25 03:08:32,842 - INFO -     #   1x — crossfade
+2026-06-25 03:08:32,852 - INFO - Top pain points identified: 4
+2026-06-25 03:08:32,852 - INFO - Top feature requests identified: 3
+2026-06-25 03:08:32,852 - INFO -   Most frequent pain points:
+2026-06-25 03:08:32,852 - INFO -     #   2x — app crashes
+2026-06-25 03:08:32,852 - INFO -     #   2x — too many ads
+2026-06-25 03:08:32,852 - INFO -     #   1x — slow loading
+2026-06-25 03:08:32,852 - INFO -     #   1x — shuffle broken
+2026-06-25 03:08:32,852 - INFO -   Most requested features:
+2026-06-25 03:08:32,852 - INFO -     #   2x — dark mode
+2026-06-25 03:08:32,852 - INFO -     #   2x — sleep timer
+2026-06-25 03:08:32,852 - INFO -     #   1x — crossfade
+2026-06-25 03:08:32,853 - INFO - Top pain points identified: 4
+2026-06-25 03:08:32,853 - INFO - Top feature requests identified: 3
+2026-06-25 03:08:32,853 - INFO -   Most frequent pain points:
+2026-06-25 03:08:32,853 - INFO -     #   2x — app crashes
+2026-06-25 03:08:32,853 - INFO -     #   2x — too many ads
+2026-06-25 03:08:32,853 - INFO -     #   1x — slow loading
+2026-06-25 03:08:32,853 - INFO -     #   1x — shuffle broken
+2026-06-25 03:08:32,853 - INFO -   Most requested features:
+2026-06-25 03:08:32,853 - INFO -     #   2x — dark mode
+2026-06-25 03:08:32,853 - INFO -     #   2x — sleep timer
+2026-06-25 03:08:32,853 - INFO -     #   1x — crossfade

@@ -6,8 +6,8 @@ from unittest.mock import MagicMock
 # Adjust path to import src modules properly
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from segmentation import UserSegmentationAgent, UserSegmentationPipeline
-from models import UserSegmentSchema, UserSegment, UserSegmentReview
+from segmentation import UserSegmentationAgent, UserSegmentationPipeline  # type: ignore[import-not-found]
+from models import UserSegmentSchema, UserSegment, UserSegmentReview  # type: ignore[import-not-found]
 
 
 class TestUserSegmentationAgent(unittest.TestCase):

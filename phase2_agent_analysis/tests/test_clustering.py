@@ -6,8 +6,8 @@ from unittest.mock import MagicMock
 # Adjust path to import src modules properly
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from clustering import ThemeClusteringAgent, ThemeClusteringPipeline
-from models import ThemeClusterSchema, ThemeCluster, SupportingReviewItem
+from clustering import ThemeClusteringAgent, ThemeClusteringPipeline  # type: ignore[import-not-found]
+from models import ThemeClusterSchema, ThemeCluster, SupportingReviewItem  # type: ignore[import-not-found]
 
 
 class TestThemeClusteringAgent(unittest.TestCase):

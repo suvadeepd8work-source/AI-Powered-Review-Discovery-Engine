@@ -264,7 +264,7 @@ class UserSegmentationAgent:
             logger.info(f"Sending batch of {len(batch_reviews)} reviews to Groq API for segmentation...")
             start_time = time.time()
             response = self.client.chat.completions.create(
-                model="llama-3-70b-8192",
+                model="llama-3.3-70b-versatile",
                 response_model=UserSegmentSchema,
                 messages=[
                     {"role": "system", "content": SEGMENTATION_SYSTEM_PROMPT},

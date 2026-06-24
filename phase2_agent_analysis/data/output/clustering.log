@@ -60,3 +60,33 @@
 2026-06-25 02:13:18,461 - INFO -   Discovery                 : 17 reviews
 2026-06-25 02:13:18,461 - INFO - ============================================
 
+2026-06-25 02:27:33,530 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 02:27:33,908 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 02:27:33,910 - INFO - Sending batch of 1 reviews to Groq API for clustering...
+2026-06-25 02:27:33,910 - INFO - Received theme clustering response in 0.00s.
+2026-06-25 02:27:33,911 - INFO - Filtered 1 problem/complaint reviews out of 2 total reviews.
+2026-06-25 02:27:33,911 - INFO - Processing clustering batch 1 (0 to 1 of 1)...
+2026-06-25 02:50:39,457 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 02:50:39,769 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 02:50:39,776 - INFO - Sending batch of 1 reviews to Groq API for clustering...
+2026-06-25 02:50:39,776 - INFO - Received theme clustering response in 0.00s.
+2026-06-25 02:50:39,777 - INFO - Filtered 1 problem/complaint reviews out of 2 total reviews.
+2026-06-25 02:50:39,777 - INFO - Processing clustering batch 1 (0 to 1 of 1)...
+2026-06-25 02:52:04,438 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 02:52:04,723 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 02:52:04,724 - INFO - Sending batch of 1 reviews to Groq API for clustering...
+2026-06-25 02:52:04,724 - INFO - Received theme clustering response in 0.00s.
+2026-06-25 02:52:04,725 - INFO - Filtered 1 problem/complaint reviews out of 2 total reviews.
+2026-06-25 02:52:04,725 - INFO - Processing clustering batch 1 (0 to 1 of 1)...
+2026-06-25 02:56:40,116 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 02:56:40,471 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 02:56:40,482 - INFO - Sending batch of 1 reviews to Groq API for clustering...
+2026-06-25 02:56:40,483 - INFO - Received theme clustering response in 0.00s.
+2026-06-25 02:56:40,484 - INFO - Filtered 1 problem/complaint reviews out of 2 total reviews.
+2026-06-25 02:56:40,484 - INFO - Processing clustering batch 1 (0 to 1 of 1)...
+2026-06-25 03:08:25,151 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 03:08:25,478 - INFO - Groq client initialized successfully for Theme Clustering.
+2026-06-25 03:08:25,486 - INFO - Sending batch of 1 reviews to Groq API for clustering...
+2026-06-25 03:08:25,487 - INFO - Received theme clustering response in 0.00s.
+2026-06-25 03:08:25,488 - INFO - Filtered 1 problem/complaint reviews out of 2 total reviews.
+2026-06-25 03:08:25,488 - INFO - Processing clustering batch 1 (0 to 1 of 1)...

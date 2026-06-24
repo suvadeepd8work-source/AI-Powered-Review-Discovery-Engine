@@ -6,8 +6,8 @@ from unittest.mock import MagicMock
 # Adjust path to import src modules properly
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from analyzer import ReviewAnalyzerAgent, DataAnalyzerPipeline
-from models import AnalyzedReviewOutput, AnalyzedReviewItem, AnalyzedReviewBatchOutput
+from analyzer import ReviewAnalyzerAgent, DataAnalyzerPipeline  # type: ignore[import-not-found]
+from models import AnalyzedReviewItem, AnalyzedReviewBatchOutput  # type: ignore[import-not-found]
 
 
 class TestReviewAnalyzerAgent(unittest.TestCase):
@@ -15,6 +15,7 @@ class TestReviewAnalyzerAgent(unittest.TestCase):
     def test_analyzer_agent_fallback_heuristics(self):
         # Create analyzer without API Key
         analyzer = ReviewAnalyzerAgent(api_key=None)
+        analyzer.client = None  # Ensure client is None to run fallback path
         
         # Test positive review detection
         res_pos = analyzer.analyze_review("I absolutely love this app, it is amazing!")
@@ -104,8 +105,8 @@ class TestDataAnalyzerPipeline(unittest.TestCase):
         ]
 
         pipeline = DataAnalyzerPipeline(input_path="mock", output_dir="mock", analyzer_agent=mock_agent, batch_size=2)
-        pipeline.load_reviews = lambda: mock_filtered_reviews
-        pipeline.save = lambda result: None # No-op
+        setattr(pipeline, 'load_reviews', lambda: mock_filtered_reviews)
+        setattr(pipeline, 'save', lambda _: None) # No-op
 
         result = pipeline.analyze()
         analyzed = result["analyzed_reviews"]

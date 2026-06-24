@@ -149,7 +149,7 @@ class ReviewAnalyzerAgent:
             logger.info(f"Sending batch of {len(batch_texts)} reviews to Groq API...")
             start_time = time.time()
             response = self.client.chat.completions.create(
-                model="llama-3-8b-8192",
+                model="llama-3.1-8b-instant",
                 response_model=AnalyzedReviewBatchOutput,
                 messages=[
                     {"role": "system", "content": ANALYZER_SYSTEM_PROMPT},

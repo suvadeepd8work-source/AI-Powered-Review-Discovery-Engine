@@ -62,7 +62,7 @@ class ReviewCleanerAgent:
             )
         try:
             response = self.client.chat.completions.create(
-                model="llama-3-8b-8192",
+                model="llama-3.1-8b-instant",
                 response_model=CleanedReviewOutput,
                 messages=[
                     {"role": "system", "content": CLEANER_SYSTEM_PROMPT},

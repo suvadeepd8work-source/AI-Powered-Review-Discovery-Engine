@@ -194,7 +194,7 @@ class ThemeClusteringAgent:
             logger.info(f"Sending batch of {len(batch_reviews)} reviews to Groq API for clustering...")
             start_time = time.time()
             response = self.client.chat.completions.create(
-                model="llama-3-8b-8192", # Stable, fast structured extraction model
+                model="llama-3.1-8b-instant", # Fast structured extraction model
                 response_model=ThemeClusterSchema,
                 messages=[
                     {"role": "system", "content": CLUSTERING_SYSTEM_PROMPT},
