@@ -7,7 +7,7 @@ from unittest.mock import MagicMock
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from analyzer import ReviewAnalyzerAgent, DataAnalyzerPipeline
-from models import AnalyzedReviewOutput
+from models import AnalyzedReviewOutput, AnalyzedReviewItem, AnalyzedReviewBatchOutput
 
 
 class TestReviewAnalyzerAgent(unittest.TestCase):
@@ -40,14 +40,19 @@ class TestReviewAnalyzerAgent(unittest.TestCase):
 
     def test_analyzer_agent_with_mock_client(self):
         analyzer = ReviewAnalyzerAgent(api_key="mock-key")
-        mock_output = AnalyzedReviewOutput(
-            sentiment="negative",
-            emotion="disappointment",
-            pain_points=["playlist boredom"],
-            feature_requests=["better shuffle mode"],
-            positive_feedback=[],
-            negative_feedback=["bad recommendations"],
-            jobs_to_be_done=["discover fresh indie tracks"]
+        mock_output = AnalyzedReviewBatchOutput(
+            batch_results=[
+                AnalyzedReviewItem(
+                    review_index=0,
+                    sentiment="negative",
+                    emotion="disappointment",
+                    pain_points=["playlist boredom"],
+                    feature_requests=["better shuffle mode"],
+                    positive_feedback=[],
+                    negative_feedback=["bad recommendations"],
+                    jobs_to_be_done=["discover fresh indie tracks"]
+                )
+            ]
         )
         
         # Mocking the instructor patched client call
@@ -66,24 +71,30 @@ class TestDataAnalyzerPipeline(unittest.TestCase):
     def test_analyzer_pipeline_flow(self):
         # Mock agent to return structured results
         mock_agent = MagicMock()
-        mock_agent.analyze_review.side_effect = [
-            AnalyzedReviewOutput(
-                sentiment="positive",
-                emotion="satisfaction",
-                pain_points=[],
-                feature_requests=[],
-                positive_feedback=["great sound quality"],
-                negative_feedback=[],
-                jobs_to_be_done=["listen to study music"]
-            ),
-            AnalyzedReviewOutput(
-                sentiment="negative",
-                emotion="frustration",
-                pain_points=["app lags"],
-                feature_requests=["fix performance issues"],
-                positive_feedback=[],
-                negative_feedback=["slow search speed"],
-                jobs_to_be_done=["find pop tracks"]
+        mock_agent.analyze_batch.side_effect = [
+            AnalyzedReviewBatchOutput(
+                batch_results=[
+                    AnalyzedReviewItem(
+                        review_index=0,
+                        sentiment="positive",
+                        emotion="satisfaction",
+                        pain_points=[],
+                        feature_requests=[],
+                        positive_feedback=["great sound quality"],
+                        negative_feedback=[],
+                        jobs_to_be_done=["listen to study music"]
+                    ),
+                    AnalyzedReviewItem(
+                        review_index=1,
+                        sentiment="negative",
+                        emotion="frustration",
+                        pain_points=["app lags"],
+                        feature_requests=["fix performance issues"],
+                        positive_feedback=[],
+                        negative_feedback=["slow search speed"],
+                        jobs_to_be_done=["find pop tracks"]
+                    )
+                ]
             )
         ]
 
@@ -92,7 +103,7 @@ class TestDataAnalyzerPipeline(unittest.TestCase):
             {"review": "The app lags a lot when I try to search for tracks.", "rating": 2, "review_date": "2026-06-25", "app_version": "1.0", "thumbs_up_count": 0}
         ]
 
-        pipeline = DataAnalyzerPipeline(input_path="mock", output_dir="mock", analyzer_agent=mock_agent)
+        pipeline = DataAnalyzerPipeline(input_path="mock", output_dir="mock", analyzer_agent=mock_agent, batch_size=2)
         pipeline.load_reviews = lambda: mock_filtered_reviews
         pipeline.save = lambda result: None # No-op
 

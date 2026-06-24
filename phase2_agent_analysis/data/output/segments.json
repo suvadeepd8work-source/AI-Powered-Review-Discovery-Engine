@@ -1,0 +1,474 @@
+[
+  {
+    "segment_name": "Casual Listeners",
+    "description": "Users who listen occasionally for leisure, typically use the free tier, and are primarily frustrated by ad interruptions.",
+    "traits": [
+      "Listens occasionally",
+      "Uses free tier",
+      "Background music listener",
+      "Low engagement with features"
+    ],
+    "primary_challenges": [
+      "Too many ads on free tier",
+      "Forced shuffle mode",
+      "Can't choose specific songs without premium"
+    ],
+    "jobs_to_be_done": [
+      "Listen to music without friction",
+      "Discover songs easily",
+      "Enjoy music without interruptions"
+    ],
+    "representative_reviews": [
+      {
+        "review": "continuing to charge more and then when adding audio books caps it to 15hrs a month, with all the price hikes giving a little something back would have been nice",
+        "rating": 2,
+        "review_date": "2026-06-24T01:47:37"
+      },
+      {
+        "review": "worth it! If only it didnt take that long to load when I open it. It happens when we change from Wifi to no Wifi. it does work, but with alot of frustration and effort. still a great app, though.",
+        "rating": 5,
+        "review_date": "2026-06-24T01:45:58"
+      },
+      {
+        "review": "i payed for premium and yet the app glitches and kicks me out and it annoys me deeply sometimes when I enter the app..its plain black with the exit button. please fix it so I dont deal with this again, because its upsetting.",
+        "rating": 3,
+        "review_date": "2026-06-24T01:42:43"
+      },
+      {
+        "review": "I've been trying other music apps and none of them are in line with this one I give it to 10 of 10 to 1",
+        "rating": 5,
+        "review_date": "2026-06-24T01:33:03"
+      },
+      {
+        "review": "my huge problem with this app is the shuffle. It plays random songs that I don't like and I don't even want to listen to. unless if you pay. this app is extremely greedy and I really don't like it. I hope they fix this! NOW",
+        "rating": 2,
+        "review_date": "2026-06-24T01:32:28"
+      },
+      {
+        "review": "these song are very 👍 good",
+        "rating": 5,
+        "review_date": "2026-06-23T22:41:43"
+      },
+      {
+        "review": "New widget is terrible. Why is the old one being removed already? Why is the new widget a barren hellscape of grey-blue? No background. No album covers like in the preview. Buttons and text are oversized and don't fit, especially when the widget is 4x1.",
+        "rating": 1,
+        "review_date": "2026-06-23T22:38:37"
+      },
+      {
+        "review": "now days spotify becomes to whatch ads not listening music very disappointed....",
+        "rating": 1,
+        "review_date": "2026-06-23T22:34:03"
+      }
+    ],
+    "review_count": 1783
+  },
+  {
+    "segment_name": "Premium Subscribers",
+    "description": "Paying users who expect flawless app performance and feel betrayed when crashes, bugs, or regressions occur.",
+    "traits": [
+      "Pays for premium plan",
+      "Expects zero bugs",
+      "Uses offline downloads",
+      "High expectations from service"
+    ],
+    "primary_challenges": [
+      "App crashing despite paying",
+      "Bugs not being fixed promptly",
+      "Price hikes without improvements"
+    ],
+    "jobs_to_be_done": [
+      "Get a flawless premium experience",
+      "Access all features reliably",
+      "Justify subscription cost"
+    ],
+    "representative_reviews": [
+      {
+        "review": "EVERYTHING ASKS FOR A PREMIUM. I BOUGHT A PREMIUM... NOW I'M GETTING ADS TO BUY SOME PLATINUM PREMIUM",
+        "rating": 3,
+        "review_date": "2026-06-24T01:46:49"
+      },
+      {
+        "review": "user experience is awful if youre not paying for premium - and premium prices keep going up. pure greed, can't even do bare minimum features such as skipping songs as much as you'd like.",
+        "rating": 1,
+        "review_date": "2026-06-24T01:24:57"
+      },
+      {
+        "review": "I stopped paying for premium and I was shocked by the underhanded tactics they pull on basic members in order to make their experience unbearable, until they shill out for premium. The amount of ads are ridiculous, and now I can't even listen to an album, either in-order or shuffled, without other songs in the mix?? And now, after a recent update, I can't even click on what songs I want playing from my playlists. This is scummy, but somehow they still can't afford to pay their artists properly.",
+        "rating": 1,
+        "review_date": "2026-06-24T01:08:12"
+      },
+      {
+        "review": "just amazing the songs with with quality but I don't want get premium",
+        "rating": 4,
+        "review_date": "2026-06-24T00:58:47"
+      },
+      {
+        "review": "its a two without premium but with premium is the best music app",
+        "rating": 5,
+        "review_date": "2026-06-24T00:26:26"
+      },
+      {
+        "review": "spotify gives the bare minimum to people who dont have spotify premium and ads play almost every two songs, 5 ads for each two songs btw this app sucks and you should switch to a different platform",
+        "rating": 1,
+        "review_date": "2026-06-23T22:38:22"
+      },
+      {
+        "review": "best apo for music I do wish premium wasnt so expensive tho",
+        "rating": 4,
+        "review_date": "2026-06-23T22:36:51"
+      },
+      {
+        "review": "an many know , this app is way too focused on premium. i have been using it for 5 years , it was good in the beginning but then it became way too narrowed in experience, can't play in my order . can't even play a song again or adjust where to listen to now",
+        "rating": 1,
+        "review_date": "2026-06-23T22:23:30"
+      }
+    ],
+    "review_count": 548
+  },
+  {
+    "segment_name": "Free Users",
+    "description": "Non-paying users severely limited by ad interruptions, skip restrictions, and inability to choose songs or use offline mode.",
+    "traits": [
+      "No paid subscription",
+      "Disrupted by ads",
+      "Cannot skip freely",
+      "Cannot choose specific songs"
+    ],
+    "primary_challenges": [
+      "Cannot skip songs",
+      "Ad frequency is excessive",
+      "Offline mode not available"
+    ],
+    "jobs_to_be_done": [
+      "Listen to music for free",
+      "Skip songs occasionally",
+      "Access basic music discovery"
+    ],
+    "representative_reviews": [
+      {
+        "review": "I love Spotify, I've tried other apps and none compare to this app. plus no other app gave me a free Google home mini either! I will never swap to any other app.",
+        "rating": 5,
+        "review_date": "2026-06-24T01:18:53"
+      },
+      {
+        "review": "The free version is awful. You have to pay to get a basic, average experience. Starts off with minimal ads, and the more you listen, the more ads you get. More frequent, slowly increasing the amount of ads at one time... can't stand it.",
+        "rating": 1,
+        "review_date": "2026-06-24T00:46:57"
+      },
+      {
+        "review": "hm jese garibo ke liye to subscribtione free kro",
+        "rating": 2,
+        "review_date": "2026-06-24T00:07:19"
+      },
+      {
+        "review": "too much ads and can't skip",
+        "rating": 2,
+        "review_date": "2026-06-23T22:51:52"
+      },
+      {
+        "review": "I really like it I just wish it was for free to get everything but what you do get for free is good 😊",
+        "rating": 5,
+        "review_date": "2026-06-23T21:56:33"
+      },
+      {
+        "review": "on the free version i almost deleted the app. but the free 3 months made me pity yall enough to give it a chance. same energy just not as intentionally annoying to make you buy premium... yall are 9n the decline for sure.",
+        "rating": 3,
+        "review_date": "2026-06-23T20:34:40"
+      },
+      {
+        "review": "I can't listen to anything in free and ads are everywhere, who even uses this app for free.",
+        "rating": 1,
+        "review_date": "2026-06-23T20:30:13"
+      },
+      {
+        "review": "Cache eats up any free space, takes up as much as 5gb of storage after 2 uses",
+        "rating": 2,
+        "review_date": "2026-06-23T20:27:06"
+      }
+    ],
+    "review_count": 116
+  },
+  {
+    "segment_name": "Power Users",
+    "description": "Heavy daily listeners who use advanced features, manage large libraries, and expect a premium, full-featured experience.",
+    "traits": [
+      "Listens 4+ hours daily",
+      "Manages large playlists",
+      "Uses advanced audio settings",
+      "Relies on app for daily mood"
+    ],
+    "primary_challenges": [
+      "Bugs disrupting heavy usage",
+      "Recommendation algorithms feel repetitive",
+      "Missing advanced audio controls"
+    ],
+    "jobs_to_be_done": [
+      "Fine-tune the listening experience",
+      "Manage a large music collection",
+      "Get personalized recommendations"
+    ],
+    "representative_reviews": [
+      {
+        "review": "For some reason, the crossfade keeps going on my device, and it's around 10 seconds of crossfade . I've checked my setting on all of my devices, and all of them say that my crossfade is set to 0 seconds but regardless they all continue to crossfade all of my songs and its really annoying",
+        "rating": 2,
+        "review_date": "2026-06-23T23:38:13"
+      },
+      {
+        "review": "recently has been crashing constantly. I pay 20 bucks a month for you clowns to never fix your app, wonderful.",
+        "rating": 1,
+        "review_date": "2026-06-23T22:33:13"
+      },
+      {
+        "review": "how is it possible that after 2 decades you don't have an option for random play from any song from the artist in my library? I can already see your answer to this: \"we have a random play option, you just need to build a playlist\". completely ignoring my question",
+        "rating": 1,
+        "review_date": "2026-06-23T22:13:17"
+      },
+      {
+        "review": "am done with this lot of ad and daily limit of skipping and we can't order the queue properly. Spotify become bad app to me",
+        "rating": 1,
+        "review_date": "2026-06-23T21:27:28"
+      },
+      {
+        "review": "App gets worse with each update, made slower by increasing the amount of ai slop shoveled down your throat and now the app crashes constantly after the new update. And you just know the price is going up again... 👎",
+        "rating": 2,
+        "review_date": "2026-06-23T20:15:15"
+      },
+      {
+        "review": "constantly crashing after whatever the last update was.",
+        "rating": 1,
+        "review_date": "2026-06-23T19:40:19"
+      },
+      {
+        "review": "The new widget absolutely sucks, completely takes me out of my listening history to the most recent episode and when you tap it it doesn't always open the app. I believe that this app is completely worth the monthly payment that's the only real set back however you get what you payed for and so much more, especially if you listen to music a lot! I use this app on almost a daily basis and it is by far my favorite music app! I can find anything and everything not just music! Its an amazing app!",
+        "rating": 3,
+        "review_date": "2026-06-23T19:02:04"
+      },
+      {
+        "review": "Good Music App with Various collection of songs. But, Number of Ads in the middle.",
+        "rating": 4,
+        "review_date": "2026-06-23T17:53:57"
+      }
+    ],
+    "review_count": 107
+  },
+  {
+    "segment_name": "Podcast Users",
+    "description": "Users primarily interested in podcast content, audiobooks, or spoken word — not just music streaming.",
+    "traits": [
+      "Primary use is podcasts",
+      "May use premium for podcast features",
+      "Episode-based listening habits"
+    ],
+    "primary_challenges": [
+      "Poor podcast discovery",
+      "Podcast episodes missing",
+      "Audio quality inconsistent"
+    ],
+    "jobs_to_be_done": [
+      "Listen to favorite podcasts",
+      "Discover new shows",
+      "Continue episodes seamlessly"
+    ],
+    "representative_reviews": [
+      {
+        "review": "best app for music and podcast loved it",
+        "rating": 5,
+        "review_date": "2026-06-23T23:44:12"
+      },
+      {
+        "review": "I absolutely enjoy this app especially for listening to music and podcasts...I listen with my Bluetooth while doing my grocery shopping and housework I still love the app but why all of a sudden are you guys removing songs(inquiring minds want to know) because the songs were on there yesterday and played just fine and now today songs are just gone and the artist didn't remove them",
+        "rating": 5,
+        "review_date": "2026-06-23T23:32:49"
+      },
+      {
+        "review": "solid choice of podcasts, great new tunes",
+        "rating": 5,
+        "review_date": "2026-06-23T21:45:14"
+      },
+      {
+        "review": "Best app for listening to music and podcasts in the background while you are bored or working.",
+        "rating": 5,
+        "review_date": "2026-06-23T21:39:31"
+      },
+      {
+        "review": "This app Is best For Songs & podcast",
+        "rating": 5,
+        "review_date": "2026-06-23T20:56:08"
+      },
+      {
+        "review": "_invisible 1 minus star--> sometimes the advertisement for free plan annoys me. however, it is really fun to listen to songs & podcasts in spotify because of the pretty & unique setups. thanks for creating spotify , i sincerely apologize for the critism above.",
+        "rating": 5,
+        "review_date": "2026-06-23T20:42:51"
+      },
+      {
+        "review": "It's my go to app for all my podcasts ! love it!",
+        "rating": 5,
+        "review_date": "2026-06-23T20:19:47"
+      },
+      {
+        "review": "I used to love spotify, my music app of choice. Now if I want to play some music, start some playlists created by Spotify - I need to scroll through all suggested podcasts. Frankly it is bs. I dont want to see podcasts, I am not interested in them.",
+        "rating": 1,
+        "review_date": "2026-06-23T17:44:45"
+      }
+    ],
+    "review_count": 97
+  },
+  {
+    "segment_name": "Students",
+    "description": "Budget-conscious users who listen while studying and actively seek affordable or discounted subscription plans.",
+    "traits": [
+      "Budget-sensitive",
+      "Listens while studying",
+      "Seeks student discounts",
+      "Values ad-free experience"
+    ],
+    "primary_challenges": [
+      "Cannot afford premium",
+      "Student discount not easily accessible",
+      "Ad volume too high on free tier"
+    ],
+    "jobs_to_be_done": [
+      "Access affordable music streaming",
+      "Listen while studying without distraction",
+      "Explore new music on a budget"
+    ],
+    "representative_reviews": [
+      {
+        "review": "Forced to add the new widget, and it turns out to be so buggy and broken that it's practically useless.",
+        "rating": 1,
+        "review_date": "2026-06-23T22:17:22"
+      },
+      {
+        "review": "Good. But I have one problem for sometime now: the algorithm used to shuffle musics is kindda broken. Edit: 10 years and the shuffle algorithm hasn't been corrected edit2: new widget is broken on my pixel phone",
+        "rating": 2,
+        "review_date": "2026-06-23T15:33:47"
+      },
+      {
+        "review": "While I've loved Spotify for years, I find radio stations being flooded with AI generated music. There's no way to filter it out and discover only genuine new human artists. It makes the music I do hear seem cheap, like I'm listening elavator music. Please create a filter for AI content.",
+        "rating": 3,
+        "review_date": "2026-06-23T14:57:19"
+      },
+      {
+        "review": "i really love this app.. I love to hear songs while studying and this app .",
+        "rating": 5,
+        "review_date": "2026-06-23T14:11:51"
+      },
+      {
+        "review": "perfect for me, as a person who is hooked to music while studying, perfect when I need to work on my tab but want the music to keep going tho i would say there are a whole lot of ads which breaks the flow, if u could reduce it, it would be a great fix. thanks Spotify!! 🌷💫",
+        "rating": 5,
+        "review_date": "2026-06-23T14:04:37"
+      },
+      {
+        "review": "A wonderful app! affordable. specially for students. ❤️",
+        "rating": 5,
+        "review_date": "2026-06-23T12:51:03"
+      },
+      {
+        "review": "The music sound quality i didn't get from anywhere. Magic Shuffle works good most of the time. Some musics are not available Even though it's in likes. And some musics are not available at all. overall it's a satisfied experience. 1 year 6 months offers can be a bit cheaper maybe.",
+        "rating": 4,
+        "review_date": "2026-06-23T10:44:59"
+      },
+      {
+        "review": "update:this app is broken keeps crashing and refusing to work I've uninstalled and cleared the cache and the app still refuses to work.",
+        "rating": 1,
+        "review_date": "2026-06-23T08:23:25"
+      }
+    ],
+    "review_count": 61
+  },
+  {
+    "segment_name": "Fitness Users",
+    "description": "Users who listen during workouts or outdoor activities, requiring uninterrupted playback and strong offline download capabilities.",
+    "traits": [
+      "Listens during physical activity",
+      "Needs uninterrupted playback",
+      "Relies on offline/downloaded music",
+      "Uses playlists for workouts"
+    ],
+    "primary_challenges": [
+      "App crashes during workouts",
+      "Offline downloads fail",
+      "No seamless Bluetooth/wearable integration"
+    ],
+    "jobs_to_be_done": [
+      "Maintain uninterrupted playback during workouts",
+      "Download music for offline gym use",
+      "Find high-energy workout playlists"
+    ],
+    "representative_reviews": [
+      {
+        "review": "Crashes every 5 seconds, will not stay running no matter what I try. Edit: Uninstalling and reinstalling returned stability but now I have to redownload 25GB of music.",
+        "rating": 4,
+        "review_date": "2026-06-23T23:19:55"
+      },
+      {
+        "review": "Without a doubt the best music streaming app around. Helped me through some of the toughest moments keeping the music running at high quality, speed & always supplied my dopamine hit with its endless range of amazing artists and songs. 👽 👾 💙 ❤️",
+        "rating": 5,
+        "review_date": "2026-06-22T22:45:04"
+      },
+      {
+        "review": "the app gets less and less usable with every update. I can literally feel my timer run out of patience for this site and app. I guess its back to physical media for me!",
+        "rating": 1,
+        "review_date": "2026-06-22T19:53:27"
+      },
+      {
+        "review": "Awful since June2026 update. The app is insanely slow now (on my 2-month-old Pixel 10 Pro with no other apps running), takes ages to load, often doesn't register me clicking the \"add to playlist\" button until the next song has started, which then applies the function to that one instead. Can assume it's the amount of AI-based bloatware they've added as the app used to be perfectly smooth to run. The mandatory widget update now barely works either; \"Spotify is offline\" when it shouldn't be.",
+        "rating": 2,
+        "review_date": "2026-06-22T17:43:44"
+      },
+      {
+        "review": "I gave two star because in middle of playlist a long time advertisement are comes which is very irritating. It is shows as the 30 minutes uninterrupted music but it can't done after sometime the advertisement comes twice 🫩",
+        "rating": 2,
+        "review_date": "2026-06-21T14:42:25"
+      },
+      {
+        "review": "Love its convenience and large access to music. If it could cut back down to 2-3 ads every few songs and give me half an hour of uninterrupted listening again it'd be perfect",
+        "rating": 3,
+        "review_date": "2026-06-21T05:35:37"
+      },
+      {
+        "review": "app is really good but the ads , it slow my workout for 1 min bcz of ad 😮‍💨",
+        "rating": 3,
+        "review_date": "2026-06-20T17:21:48"
+      },
+      {
+        "review": "perfect for a late night walk",
+        "rating": 2,
+        "review_date": "2026-06-20T16:51:18"
+      }
+    ],
+    "review_count": 22
+  },
+  {
+    "segment_name": "Regional Music Users",
+    "description": "Users listening to regional or local-language music (Bollywood, K-Pop, etc.) who want better regional catalogs and recommendations.",
+    "traits": [
+      "Listens in regional/local language",
+      "Disappointed by regional catalog gaps",
+      "Switches apps for regional content"
+    ],
+    "primary_challenges": [
+      "Missing regional artists in catalog",
+      "Recommendations ignore regional preferences",
+      "Language filtering broken"
+    ],
+    "jobs_to_be_done": [
+      "Discover regional language artists",
+      "Access local music catalog",
+      "Get region-specific recommendations"
+    ],
+    "representative_reviews": [
+      {
+        "review": "I have created 3 playlists that I listen to almost all the time, --- XHAON'S : VIDES XHAON'S : Bangla band XHAON'S: HINDI",
+        "rating": 5,
+        "review_date": "2026-06-23T10:32:47"
+      },
+      {
+        "review": "I love Spotify, its a good app and I really recommend it but the amount of adverts are driving me INSANE.I can't even listen to 10 songs without ads interrupting me.you could at least add skip buttons for them so I don't have to waste 2 mins of my life waiting for it to finish.not only that but why are you adding random music to my playlist?I made a playlist on my Spotify for kpop but you keep adding songs like Ariana or Sabrina. horrible tactics,this is gonna take people away instead of helping",
+        "rating": 2,
+        "review_date": "2026-06-20T16:05:45"
+      }
+    ],
+    "review_count": 2
+  }
+]

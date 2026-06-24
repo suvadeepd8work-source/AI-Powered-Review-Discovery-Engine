@@ -1,0 +1,47 @@
+{
+  "run_timestamp": "2026-06-24T20:58:53.433695+00:00",
+  "total_segments_identified": 8,
+  "total_reviews_segmented": 2736,
+  "segments": [
+    {
+      "segment_name": "Casual Listeners",
+      "review_count": 1783,
+      "percentage": 65.2
+    },
+    {
+      "segment_name": "Premium Subscribers",
+      "review_count": 548,
+      "percentage": 20.0
+    },
+    {
+      "segment_name": "Free Users",
+      "review_count": 116,
+      "percentage": 4.2
+    },
+    {
+      "segment_name": "Power Users",
+      "review_count": 107,
+      "percentage": 3.9
+    },
+    {
+      "segment_name": "Podcast Users",
+      "review_count": 97,
+      "percentage": 3.5
+    },
+    {
+      "segment_name": "Students",
+      "review_count": 61,
+      "percentage": 2.2
+    },
+    {
+      "segment_name": "Fitness Users",
+      "review_count": 22,
+      "percentage": 0.8
+    },
+    {
+      "segment_name": "Regional Music Users",
+      "review_count": 2,
+      "percentage": 0.1
+    }
+  ]
+}
