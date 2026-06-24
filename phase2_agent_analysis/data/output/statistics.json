@@ -1,0 +1,12 @@
+{
+  "total_input": 3989,
+  "removed_empty": 0,
+  "removed_too_short": 1011,
+  "removed_emoji_only": 65,
+  "removed_duplicate": 0,
+  "removed_non_english": 177,
+  "removed_spam": 0,
+  "total_removed": 1253,
+  "total_output": 2736,
+  "cleaning_timestamp": "2026-06-24T20:26:42.878356Z"
+}
