@@ -120,3 +120,57 @@
 2026-06-25 03:10:53,665 - INFO - Groq client initialized for Executive Report Generation.
 2026-06-25 03:10:53,930 - INFO - Groq client initialized for Executive Report Generation.
 2026-06-25 03:10:54,193 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:47:46,833 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:47:46,835 - INFO - Generating fallback executive report from structured heuristics...
+2026-06-25 03:47:47,086 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:47:47,091 - INFO - Sending payload to Groq API for executive report synthesis...
+2026-06-25 03:47:47,091 - INFO -   Themes: 2 | Segments: 2 | Metrics total: 3
+2026-06-25 03:47:47,091 - INFO - Received executive report response in 0.00s.
+2026-06-25 03:47:47,336 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:47:47,581 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:47:47,828 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:48:41,639 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:48:41,640 - INFO - Generating fallback executive report from structured heuristics...
+2026-06-25 03:48:41,946 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:48:41,948 - INFO - Sending payload to Groq API for executive report synthesis...
+2026-06-25 03:48:41,948 - INFO -   Themes: 2 | Segments: 2 | Metrics total: 3
+2026-06-25 03:48:41,948 - INFO - Received executive report response in 0.00s.
+2026-06-25 03:48:42,204 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:48:42,454 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:48:42,780 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:51:18,922 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:51:18,923 - INFO - Generating fallback executive report from structured heuristics...
+2026-06-25 03:51:19,164 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:51:19,166 - INFO - Sending payload to Groq API for executive report synthesis...
+2026-06-25 03:51:19,167 - INFO -   Themes: 2 | Segments: 2 | Metrics total: 3
+2026-06-25 03:51:19,167 - INFO - Received executive report response in 0.00s.
+2026-06-25 03:51:19,409 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:51:19,655 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-25 03:51:19,894 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:19:47,315 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:19:47,317 - INFO - Generating fallback executive report from structured heuristics...
+2026-06-26 00:19:47,631 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:19:47,633 - INFO - Sending payload to Groq API for executive report synthesis...
+2026-06-26 00:19:47,633 - INFO -   Themes: 2 | Segments: 2 | Metrics total: 3
+2026-06-26 00:19:47,634 - INFO - Received executive report response in 0.00s.
+2026-06-26 00:19:47,936 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:19:48,271 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:19:48,619 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:22:56,534 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:22:56,535 - INFO - Generating fallback executive report from structured heuristics...
+2026-06-26 00:22:56,827 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:22:56,828 - INFO - Sending payload to Groq API for executive report synthesis...
+2026-06-26 00:22:56,828 - INFO -   Themes: 2 | Segments: 2 | Metrics total: 3
+2026-06-26 00:22:56,828 - INFO - Received executive report response in 0.00s.
+2026-06-26 00:22:57,117 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:22:57,407 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:22:57,695 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:28:39,322 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:28:39,324 - INFO - Generating fallback executive report from structured heuristics...
+2026-06-26 00:28:39,690 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:28:39,701 - INFO - Sending payload to Groq API for executive report synthesis...
+2026-06-26 00:28:39,701 - INFO -   Themes: 2 | Segments: 2 | Metrics total: 3
+2026-06-26 00:28:39,702 - INFO - Received executive report response in 0.00s.
+2026-06-26 00:28:40,053 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:28:40,370 - INFO - Groq client initialized for Executive Report Generation.
+2026-06-26 00:28:40,680 - INFO - Groq client initialized for Executive Report Generation.

@@ -1,18 +1,12 @@
 {
-  "total_collected": 8000,
-  "total_deduplicated": 3989,
-  "duplicate_count": 4011,
-  "collection_timestamp": "2026-06-24T20:22:56.136234Z",
+  "total_collected": 100,
+  "total_deduplicated": 99,
+  "duplicate_count": 1,
+  "collection_timestamp": "2026-06-25T18:50:08.916268Z",
   "sources_breakdown_before": {
-    "play_store": 4000,
-    "app_store": 500,
-    "community_forum": 1744,
-    "social_media": 1756
+    "play_store": 100
   },
   "sources_breakdown_after": {
-    "play_store": 3461,
-    "app_store": 468,
-    "community_forum": 34,
-    "social_media": 26
+    "play_store": 99
   }
 }
