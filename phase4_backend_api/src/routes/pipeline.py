@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.join(root_dir, "phase3_orchestration", "src"))
 
 from orchestrator import AgentPipelineOrchestrator  # type: ignore[import-not-found]
 from config import PHASE3_DB_URL                    # type: ignore[import-not-found]
-from database import get_db, get_session_factory                     # type: ignore[import-not-found]
+from database import get_db                         # type: ignore[import-not-found]
 from api_models.response import PipelineTriggerResponse, PipelineStatusResponse
 
 router = APIRouter(prefix="/pipeline", tags=["Pipeline"])
@@ -79,12 +79,23 @@ def get_pipeline_status(run_id: str, db: Session = Depends(get_db)):
     if not run:
         raise HTTPException(status_code=404, detail=f"Pipeline run '{run_id}' not found.")
 
+    # Explicitly cast SQLAlchemy Column types to Python primitive types to satisfy type checkers
+    run_id_val = str(run.run_id)
+    status_val = str(run.status)
+    current_phase_val = str(run.current_phase)
+    
+    total_exec_val = float(run.total_execution_time_s) if run.total_execution_time_s is not None else None
+    error_msg_val = str(run.error_message) if run.error_message else None
+
+    start_time_val = run.start_time.isoformat() if run.start_time else None
+    end_time_val = run.end_time.isoformat() if run.end_time else None
+
     return PipelineStatusResponse(
-        run_id=run.run_id,
-        status=run.status,
-        current_phase=run.current_phase,
-        start_time=run.start_time.isoformat() if run.start_time else None,
-        end_time=run.end_time.isoformat() if run.end_time else None,
-        total_execution_time_s=run.total_execution_time_s,
-        error_message=run.error_message,
+        run_id=run_id_val,
+        status=status_val,
+        current_phase=current_phase_val,
+        start_time=start_time_val,
+        end_time=end_time_val,
+        total_execution_time_s=total_exec_val,
+        error_message=error_msg_val,
     )

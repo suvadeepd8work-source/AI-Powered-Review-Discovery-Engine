@@ -96,7 +96,9 @@ class DataLoader:
             return data
         if isinstance(data, dict):
             # insights.json may be {"opportunities": [...], "pain_points": [...]}
-            return data.get("opportunities", data.get("insights", []))
+            val = data.get("opportunities") or data.get("insights")
+            if isinstance(val, list):
+                return val
         return []
 
     def load_insights_raw(self) -> dict:
