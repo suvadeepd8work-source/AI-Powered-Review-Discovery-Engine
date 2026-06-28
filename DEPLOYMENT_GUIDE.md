@@ -1,13 +1,13 @@
 # Production Deployment Guide
 
-This guide covers deploying the AI-Powered Review Discovery Engine to production using Vercel (frontend) and Railway/Render (backend).
+This guide covers deploying the AI-Powered Review Discovery Engine to production using Vercel (frontend) and Render (backend).
 
 ---
 
 ## Architecture Overview
 
 **Frontend:** Next.js 14 deployed on Vercel
-**Backend:** FastAPI deployed on Railway or Render
+**Backend:** FastAPI deployed on Render
 **Database:** SQLite (can be upgraded to PostgreSQL for production)
 
 ---
@@ -16,26 +16,28 @@ This guide covers deploying the AI-Powered Review Discovery Engine to production
 
 - GitHub account with repository access
 - Vercel account (free tier available)
-- Railway or Render account (free tier available)
+- Render account (free tier available)
 - Groq API key
 
 ---
 
-## Step 1: Deploy Backend on Railway
+## Step 1: Deploy Backend on Render
 
-### 1.1 Create Railway Project
+### 1.1 Create Render Project
 
-1. Go to [railway.app](https://railway.app) and sign in
-2. Click "New Project" → "Deploy from GitHub repo"
-3. Select your repository: `suvadeepd8work-source/AI-Powered-Review-Discovery-Engine`
-4. Configure build settings:
+1. Go to [render.com](https://render.com) and sign in
+2. Click "New +" → "Web Service"
+3. Connect your GitHub repository
+4. Configure:
+   - **Name:** `review-discovery-backend`
    - **Root Directory:** `phase4_backend_api`
    - **Build Command:** `pip install -r requirements.txt`
    - **Start Command:** `uvicorn src.main:app --host 0.0.0.0 --port $PORT`
+   - **Instance Type:** Free
 
 ### 1.2 Configure Environment Variables
 
-In Railway project settings, add these environment variables:
+In Render project settings, add these environment variables:
 
 ```bash
 GROQ_API_KEY=your_groq_api_key_here
@@ -51,49 +53,23 @@ BATCH_SIZE_SEGMENTATION=60
 
 ### 1.3 Deploy
 
-1. Click "Deploy"
+1. Click "Create Web Service"
 2. Wait for deployment to complete
-3. Railway will provide a URL like: `https://your-backend.railway.app`
+3. Render will provide a URL like: `https://your-backend.onrender.com`
 4. Copy this URL for frontend configuration
 
 ### 1.4 Verify Deployment
 
 ```bash
-curl https://your-backend.railway.app/
-curl https://your-backend.railway.app/api/health
+curl https://your-backend.onrender.com/
+curl https://your-backend.onrender.com/api/health
 ```
 
 ---
 
-## Step 2: Deploy Backend on Render (Alternative)
+## Step 2: Deploy Frontend on Vercel
 
-### 2.1 Create Render Project
-
-1. Go to [render.com](https://render.com) and sign in
-2. Click "New +" → "Web Service"
-3. Connect your GitHub repository
-4. Configure:
-   - **Name:** `review-discovery-backend`
-   - **Root Directory:** `phase4_backend_api`
-   - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `uvicorn src.main:app --host 0.0.0.0 --port $PORT`
-   - **Instance Type:** Free
-
-### 2.2 Configure Environment Variables
-
-Add the same environment variables as Railway, replacing the Railway URL with your Render URL.
-
-### 2.3 Deploy
-
-1. Click "Create Web Service"
-2. Wait for deployment
-3. Copy the Render URL (e.g., `https://your-backend.onrender.com`)
-
----
-
-## Step 3: Deploy Frontend on Vercel
-
-### 3.1 Create Vercel Project
+### 2.1 Create Vercel Project
 
 1. Go to [vercel.com](https://vercel.com) and sign in
 2. Click "Add New..." → "Project"
@@ -104,24 +80,23 @@ Add the same environment variables as Railway, replacing the Railway URL with yo
    - **Build Command:** `npm run build` (auto-detected)
    - **Output Directory:** `.next` (auto-detected)
 
-### 3.2 Configure Environment Variables
+### 2.2 Configure Environment Variables
 
 In Vercel project settings → Environment Variables, add:
 
 ```bash
-NEXT_PUBLIC_API_BASE_URL=https://your-backend.railway.app
-# or your Render URL
+NEXT_PUBLIC_API_BASE_URL=https://your-backend.onrender.com
 ```
 
-### 3.3 Deploy
+### 2.3 Deploy
 
 1. Click "Deploy"
 2. Wait for deployment to complete
 3. Vercel will provide a URL like: `https://your-app.vercel.app`
 
-### 3.4 Update Backend CORS
+### 2.4 Update Backend CORS
 
-Go back to Railway/Render and update the `ALLOWED_ORIGINS` environment variable:
+Go back to Render and update the `ALLOWED_ORIGINS` environment variable:
 
 ```bash
 ALLOWED_ORIGINS=https://your-app.vercel.app
@@ -131,19 +106,19 @@ Redeploy the backend to apply changes.
 
 ---
 
-## Step 4: Configure GitHub Actions for Production
+## Step 3: Configure GitHub Actions for Production
 
-### 4.1 Update GitHub Secrets
+### 3.1 Update GitHub Secrets
 
 Add these secrets to your GitHub repository (Settings → Secrets and variables → Actions):
 
 ```bash
 GROQ_API_KEY=your_groq_api_key_here
-BACKEND_URL=https://your-backend.railway.app
+BACKEND_URL=https://your-backend.onrender.com
 FRONTEND_URL=https://your-app.vercel.app
 ```
 
-### 4.2 Update GitHub Actions Workflow
+### 3.2 Update GitHub Actions Workflow
 
 The workflow will run weekly and can also be triggered manually. It will:
 - Execute the pipeline
@@ -152,58 +127,58 @@ The workflow will run weekly and can also be triggered manually. It will:
 
 ---
 
-## Step 5: Verify Production Deployment
+## Step 4: Verify Production Deployment
 
-### 5.1 Test Backend
+### 4.1 Test Backend
 
 ```bash
 # Health check
-curl https://your-backend.railway.app/api/health
+curl https://your-backend.onrender.com/api/health
 
 # Test endpoints
-curl https://your-backend.railway.app/api/reviews
-curl https://your-backend.railway.app/api/insights/themes
+curl https://your-backend.onrender.com/api/reviews
+curl https://your-backend.onrender.com/api/insights/themes
 ```
 
-### 5.2 Test Frontend
+### 4.2 Test Frontend
 
 1. Open your Vercel URL
 2. Verify all pages load correctly
 3. Test API integration
 4. Check that data displays properly
 
-### 5.3 Test Pipeline
+### 4.3 Test Pipeline
 
 ```bash
 # Trigger pipeline via API
-curl -X POST https://your-backend.railway.app/api/pipeline/run
+curl -X POST https://your-backend.onrender.com/api/pipeline/run
 
 # Check status
-curl https://your-backend.railway.app/api/pipeline/status/{run_id}
+curl https://your-backend.onrender.com/api/pipeline/status/{run_id}
 ```
 
 ---
 
-## Step 6: Monitor and Maintain
+## Step 5: Monitor and Maintain
 
-### 6.1 Monitoring
+### 5.1 Monitoring
 
-- **Railway/Render:** Monitor logs and resource usage
+- **Render:** Monitor logs and resource usage
 - **Vercel:** Monitor build logs and analytics
 - **GitHub Actions:** Monitor workflow runs
 
-### 6.2 Database Considerations
+### 5.2 Database Considerations
 
 For production, consider migrating from SQLite to PostgreSQL:
 
-1. Create PostgreSQL database on Railway/Render
+1. Create PostgreSQL database on Render
 2. Update `DB_CONN_STR` environment variable:
    ```bash
    DB_CONN_STR=postgresql://user:password@host:port/database
    ```
 3. No code changes needed - SQLAlchemy handles both
 
-### 6.3 Rate Limiting
+### 5.3 Rate Limiting
 
 Monitor Groq API usage:
 - Free tier: 6000 TPM (tokens per minute)
@@ -249,15 +224,10 @@ Monitor Groq API usage:
 
 **Free Tier Limits:**
 
-- **Vercel:** 
+- **Vercel:**
   - 100GB bandwidth/month
   - Unlimited projects
   - Automatic SSL
-
-- **Railway:**
-  - $5 free credit/month
-  - 512MB RAM
-  - Shared CPU
 
 - **Render:**
   - 750 hours/month free

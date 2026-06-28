@@ -461,7 +461,7 @@ phase5_frontend_ui/
 ### Deployment Platforms
 
 **Frontend:** Next.js 14 deployed on Vercel
-**Backend:** FastAPI deployed on Railway or Render
+**Backend:** FastAPI deployed on Render
 **Database:** SQLite (development) / PostgreSQL (production recommended)
 **CI/CD:** GitHub Actions for automated weekly pipeline execution
 
@@ -472,11 +472,11 @@ phase5_frontend_ui/
 - **Build Command:** `npm run build`
 - **Output Directory:** `.next`
 - **Environment Variables:**
-  - `NEXT_PUBLIC_API_BASE_URL`: Backend API URL (Railway/Render)
+  - `NEXT_PUBLIC_API_BASE_URL`: Backend API URL (Render)
 - **Configuration File:** `vercel.json`
 - **Automatic:** SSL, CDN, edge caching
 
-#### Backend (Railway/Render)
+#### Backend (Render)
 - **Framework:** FastAPI with Uvicorn
 - **Build Command:** `pip install -r requirements.txt`
 - **Start Command:** `uvicorn src.main:app --host 0.0.0.0 --port $PORT`
@@ -509,15 +509,15 @@ phase5_frontend_ui/
 ```mermaid
 graph TD
     User[User Browser] -->|HTTPS| Vercel[Vercel Frontend]
-    Vercel -->|API Calls| Railway[Railway Backend]
-    Railway -->|Database Queries| DB[(PostgreSQL/SQLite)]
-    Railway -->|Groq API| Groq[Groq LLM Service]
+    Vercel -->|API Calls| Render[Render Backend]
+    Render -->|Database Queries| DB[(PostgreSQL/SQLite)]
+    Render -->|Groq API| Groq[Groq LLM Service]
     
-    GitHub[GitHub Actions] -->|Weekly Schedule| Railway
-    GitHub -->|Manual Trigger| Railway
+    GitHub[GitHub Actions] -->|Weekly Schedule| Render
+    GitHub -->|Manual Trigger| Render
     
-    Vercel -.->|CORS Validation| Railway
-    Railway -.->|Origin Check| Vercel
+    Vercel -.->|CORS Validation| Render
+    Render -.->|Origin Check| Vercel
 ```
 
 ### Environment Variable Flow
@@ -526,7 +526,7 @@ graph TD
    - `NEXT_PUBLIC_API_BASE_URL` → Backend URL
    - Used in `lib/api.ts` for all API calls
 
-2. **Backend (Railway/Render):**
+2. **Backend (Render):**
    - `GROQ_API_KEY` → Groq API authentication
    - `ALLOWED_ORIGINS` → CORS validation
    - `DB_CONN_STR` → Database connection
@@ -548,14 +548,14 @@ graph TD
 ### Scaling Strategy
 
 - **Frontend:** Vercel automatically scales with edge network
-- **Backend:** Upgrade Railway/Render instance based on load
+- **Backend:** Upgrade Render instance based on load
 - **Database:** Migrate to PostgreSQL for better performance
 - **API Rate Limits:** Monitor Groq API usage, upgrade tier if needed
 
 ### Monitoring and Logging
 
 - **Vercel:** Build logs, analytics, error tracking
-- **Railway/Render:** Application logs, resource usage
+- **Render:** Application logs, resource usage
 - **GitHub Actions:** Workflow execution logs and summaries
 - **Application:** Structured logging to database and files
 
