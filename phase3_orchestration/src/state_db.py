@@ -33,6 +33,18 @@ class AgentExecutionLog(Base):
     timestamp = Column(DateTime, default=datetime.datetime.utcnow)
 
 
+class SchedulerLog(Base):
+    __tablename__ = 'scheduler_logs'
+
+    log_id = Column(String, primary_key=True)
+    job_name = Column(String, nullable=False)
+    status = Column(String, default="pending")           # pending | running | completed | failed
+    executed_at = Column(DateTime, nullable=True)
+    next_run_time = Column(DateTime, nullable=True)
+    error_message = Column(Text, nullable=True)
+    timestamp = Column(DateTime, default=datetime.datetime.utcnow)
+
+
 def init_db(conn_str: str = "sqlite:///pipeline_state.db"):
     engine = create_engine(conn_str)
     Base.metadata.create_all(engine)

@@ -1,12 +1,12 @@
 {
   "total_collected": 100,
-  "total_deduplicated": 99,
-  "duplicate_count": 1,
-  "collection_timestamp": "2026-06-25T18:50:08.916268Z",
+  "total_deduplicated": 95,
+  "duplicate_count": 5,
+  "collection_timestamp": "2026-06-28T18:47:04.965985Z",
   "sources_breakdown_before": {
     "play_store": 100
   },
   "sources_breakdown_after": {
-    "play_store": 99
+    "play_store": 95
   }
 }

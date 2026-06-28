@@ -1,0 +1,37 @@
+{
+  "scheduler": {
+    "enabled": true,
+    "timezone": "Asia/Kolkata",
+    "schedule": {
+      "type": "cron",
+      "day_of_week": "mon",
+      "hour": 10,
+      "minute": 0,
+      "second": 0
+    },
+    "job_id": "weekly_pipeline_execution",
+    "job_name": "Weekly Review Analysis Pipeline"
+  },
+  "pipeline": {
+    "db_conn_str": "sqlite:///pipeline_state.db",
+    "max_retries": 3,
+    "retry_wait_min_s": 2,
+    "retry_wait_max_s": 10
+  },
+  "logging": {
+    "log_dir": "logs/scheduler",
+    "log_level": "INFO",
+    "log_format": "%(asctime)s - %(levelname)s - %(message)s"
+  },
+  "frontend": {
+    "auto_update": true,
+    "data_dir": "phase5_frontend_ui/public/data",
+    "copy_files": [
+      "executive_report.json",
+      "themes.json",
+      "segments.json",
+      "product_insights.json",
+      "analyzed_reviews.json"
+    ]
+  }
+}

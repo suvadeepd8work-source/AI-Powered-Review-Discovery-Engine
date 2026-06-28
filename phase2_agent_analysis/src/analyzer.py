@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import logging
 import time
@@ -7,6 +8,11 @@ from typing import Optional, List
 from groq import Groq
 import instructor
 from tenacity import retry, stop_after_attempt, wait_exponential
+
+# Path setup for imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+if os.path.join(root_dir, "phase2_agent_analysis", "src") not in sys.path:
+    sys.path.insert(0, os.path.join(root_dir, "phase2_agent_analysis", "src"))
 
 from models import AnalyzedReviewOutput, AnalyzedReviewItem, AnalyzedReviewBatchOutput
 from prompts import ANALYZER_SYSTEM_PROMPT
@@ -133,7 +139,7 @@ class ReviewAnalyzerAgent:
             results.append(item)
         return AnalyzedReviewBatchOutput(batch_results=results)
 
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=8), reraise=True)
+    @retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=2, min=4, max=30), reraise=True)
     def analyze_batch(self, batch_texts: List[str]) -> AnalyzedReviewBatchOutput:
         if not self.client:
             return self._analyze_batch_fallback(batch_texts)
@@ -164,21 +170,6 @@ class ReviewAnalyzerAgent:
             logger.error(f"Error during Groq API batch completion: {e}")
             raise e
 
-    # Maintain single-review method for backward compatibility & tests
-    def analyze_review(self, cleaned_text: str) -> AnalyzedReviewOutput:
-        batch_res = self.analyze_batch([cleaned_text])
-        if batch_res.batch_results:
-            first = batch_res.batch_results[0]
-            return AnalyzedReviewOutput(
-                sentiment=first.sentiment,
-                emotion=first.emotion,
-                pain_points=first.pain_points,
-                feature_requests=first.feature_requests,
-                positive_feedback=first.positive_feedback,
-                negative_feedback=first.negative_feedback,
-                jobs_to_be_done=first.jobs_to_be_done
-            )
-        return self._analyze_review_fallback(cleaned_text)
 
 
 class DataAnalyzerPipeline:
@@ -196,6 +187,70 @@ class DataAnalyzerPipeline:
             data = json.load(f)
         logger.info(f"Loaded {len(data)} filtered reviews.")
         return data
+
+    def analyze_from_data(self, reviews: list) -> dict:
+        """Analyze reviews from in-memory data instead of loading from file."""
+        stats = {
+            "total_analyzed": len(reviews),
+            "sentiment_counts": {"positive": 0, "neutral": 0, "negative": 0},
+            "emotion_counts": {},
+            "total_pain_points": 0,
+            "total_feature_requests": 0,
+            "total_positive_feedback": 0,
+            "total_negative_feedback": 0,
+            "total_jtbd": 0,
+            "analysis_timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+        }
+
+        analyzed_reviews = []
+        total_reviews = len(reviews)
+
+        for i in range(0, total_reviews, self.batch_size):
+            batch_chunk = reviews[i:i + self.batch_size]
+            batch_texts = [r.get("review", "") for r in batch_chunk]
+
+            logger.info(f"Processing batch {i // self.batch_size + 1} ({i} to {min(i + self.batch_size, total_reviews)} of {total_reviews})...")
+
+            try:
+                batch_output = self.analyzer_agent.analyze_batch(batch_texts)
+            except Exception as e:
+                logger.error(f"Failed all retries for batch {i // self.batch_size + 1}: {e}. Falling back to default heuristics.")
+                batch_output = self.analyzer_agent._analyze_batch_fallback(batch_texts)
+
+            for item in batch_output.batch_results:
+                orig_idx = i + item.review_index
+                if orig_idx >= total_reviews:
+                    continue
+
+                review_item = batch_chunk[item.review_index]
+
+                stats["sentiment_counts"][item.sentiment] = stats["sentiment_counts"].get(item.sentiment, 0) + 1
+                stats["emotion_counts"][item.emotion] = stats["emotion_counts"].get(item.emotion, 0) + 1
+                stats["total_pain_points"] += len(item.pain_points)
+                stats["total_feature_requests"] += len(item.feature_requests)
+                stats["total_positive_feedback"] += len(item.positive_feedback)
+                stats["total_negative_feedback"] += len(item.negative_feedback)
+                stats["total_jtbd"] += len(item.jobs_to_be_done)
+
+                enriched_record = {
+                    "original_review": review_item.get("review", ""),
+                    "rating": review_item.get("rating"),
+                    "review_date": review_item.get("review_date"),
+                    "app_version": review_item.get("app_version"),
+                    "thumbs_up_count": review_item.get("thumbs_up_count"),
+                    "analysis": {
+                        "sentiment": item.sentiment,
+                        "emotion": item.emotion,
+                        "pain_points": item.pain_points,
+                        "feature_requests": item.feature_requests,
+                        "positive_feedback": item.positive_feedback,
+                        "negative_feedback": item.negative_feedback,
+                        "jobs_to_be_done": item.jobs_to_be_done
+                    }
+                }
+                analyzed_reviews.append(enriched_record)
+
+        return {"analyzed_reviews": analyzed_reviews, "statistics": stats}
 
     def analyze(self) -> dict:
         reviews = self.load_reviews()

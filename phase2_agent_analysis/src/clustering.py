@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import logging
 import time
@@ -7,6 +8,11 @@ from typing import Optional, List, Dict
 from groq import Groq
 import instructor
 from tenacity import retry, stop_after_attempt, wait_exponential
+
+# Path setup for imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+if os.path.join(root_dir, "phase2_agent_analysis", "src") not in sys.path:
+    sys.path.insert(0, os.path.join(root_dir, "phase2_agent_analysis", "src"))
 
 from models import ThemeClusterSchema, ThemeCluster, SupportingReviewItem
 from prompts import CLUSTERING_SYSTEM_PROMPT
@@ -173,7 +179,7 @@ class ThemeClusteringAgent:
         ]
         return ThemeClusterSchema(themes=theme_list)
 
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=8), reraise=True)
+    @retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=2, min=4, max=30), reraise=True)
     def cluster_batch(self, batch_reviews: List[dict]) -> ThemeClusterSchema:
         if not self.client:
             return self._cluster_batch_fallback(batch_reviews)
@@ -225,6 +231,65 @@ class ThemeClusteringPipeline:
             data = json.load(f)
         logger.info(f"Loaded {len(data)} analyzed reviews.")
         return data
+
+    def analyze_from_data(self, analyzed_reviews: list) -> list:
+        """Cluster reviews from in-memory data instead of loading from file."""
+        problem_reviews = []
+        for r in analyzed_reviews:
+            analysis = r.get("analysis", {})
+            is_negative = (
+                r.get("rating", 5) <= 3
+                or analysis.get("sentiment") == "negative"
+                or len(analysis.get("pain_points", [])) > 0
+                or len(analysis.get("negative_feedback", [])) > 0
+            )
+            if is_negative:
+                problem_reviews.append(r)
+
+        total_problems = len(problem_reviews)
+        logger.info(f"Filtered {total_problems} problem/complaint reviews out of {len(analyzed_reviews)} total reviews.")
+
+        if total_problems == 0:
+            logger.warning("No problem reviews found for theme clustering.")
+            return []
+
+        merged_themes = {}
+
+        for i in range(0, total_problems, self.batch_size):
+            batch_chunk = problem_reviews[i:i + self.batch_size]
+            logger.info(f"Processing clustering batch {i // self.batch_size + 1} ({i} to {min(i + self.batch_size, total_problems)} of {total_problems})...")
+
+            try:
+                batch_output = self.clustering_agent.cluster_batch(batch_chunk)
+            except Exception as e:
+                logger.error(f"Failed all retries for clustering batch {i // self.batch_size + 1}: {e}. Falling back to default heuristics.")
+                batch_output = self.clustering_agent._cluster_batch_fallback(batch_chunk)
+
+            for theme_cluster in batch_output.themes:
+                tname = theme_cluster.theme_name.strip()
+                for pred_theme in THEME_KEYWORDS.keys():
+                    if pred_theme.lower() == tname.lower():
+                        tname = pred_theme
+                        break
+
+                if tname not in merged_themes:
+                    desc = THEME_DESCRIPTIONS.get(tname, theme_cluster.description)
+                    merged_themes[tname] = {
+                        "theme_name": tname,
+                        "description": desc,
+                        "supporting_reviews": []
+                    }
+
+                for rev in theme_cluster.supporting_reviews:
+                    if not any(x["review"] == rev.review for x in merged_themes[tname]["supporting_reviews"]):
+                        merged_themes[tname]["supporting_reviews"].append({
+                            "review": rev.review,
+                            "rating": rev.rating,
+                            "review_date": rev.review_date
+                        })
+
+        sorted_themes = sorted(merged_themes.values(), key=lambda x: len(x["supporting_reviews"]), reverse=True)
+        return sorted_themes
 
     def analyze(self) -> list:
         reviews = self.load_reviews()

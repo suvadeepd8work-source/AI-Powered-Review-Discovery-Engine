@@ -35,19 +35,20 @@ import logging
 # Path setup – allow importing from other phases
 # ---------------------------------------------------------------------------
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+sys.path.insert(0, os.path.join(root_dir, "phase3_orchestration", "src"))
 sys.path.insert(0, os.path.join(root_dir, "phase1_data_ingestion", "src"))
 sys.path.insert(0, os.path.join(root_dir, "phase2_agent_analysis", "src"))
 
 # ---------------------------------------------------------------------------
 # Agent imports
 # ---------------------------------------------------------------------------
-from collector import MultiSourceReviewCollector   # type: ignore[import-not-found]
-from cleaner import DataCleanerAgent               # type: ignore[import-not-found]
-from analyzer import DataAnalyzerPipeline          # type: ignore[import-not-found]
-from clustering import ThemeClusteringPipeline     # type: ignore[import-not-found]
-from segmentation import UserSegmentationPipeline  # type: ignore[import-not-found]
-from insights import ProductInsightPipeline        # type: ignore[import-not-found]
-from report import ExecutiveReportPipeline         # type: ignore[import-not-found]
+from collector import MultiSourceReviewCollector
+from cleaner import DataCleanerAgent
+from analyzer import DataAnalyzerPipeline
+from clustering import ThemeClusteringPipeline
+from segmentation import UserSegmentationPipeline
+from insights import ProductInsightPipeline
+from report import ExecutiveReportPipeline
 
 from state_db import init_db, PipelineRun, AgentExecutionLog
 from logger import OrchestratorLogger
@@ -67,6 +68,7 @@ class AgentPipelineOrchestrator:
         self.Session = init_db(db_conn_str)
         self._current_agent: str = "Pipeline"
         self._current_phase: str = "none"
+        self._data_context: dict = {}  # Share data between phases to avoid redundant I/O
 
     # ------------------------------------------------------------------
     # DB helpers
@@ -249,60 +251,117 @@ class AgentPipelineOrchestrator:
 
             # ── Agent 2: Data Cleaner ─────────────────────────────────────
             def run_cleaner():
-                DataCleanerAgent(
+                cleaner = DataCleanerAgent(
                     input_path=dest_reviews,
                     output_dir=os.path.join(root_dir, "phase2_agent_analysis", "data", "output"),
-                ).run()
+                )
+                cleaner.run()
+                # Load cleaned reviews into memory for next phase
+                with open(os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "filtered_reviews.json"), 'r', encoding='utf-8') as f:
+                    self._data_context['cleaned_reviews'] = json.load(f)
 
             self._run_agent(run_id, "Data Cleaner", "cleaning", run_cleaner, file_logger)
 
             # ── Agent 3: Review Analyzer ──────────────────────────────────
             def run_analyzer():
-                DataAnalyzerPipeline(
-                    input_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "filtered_reviews.json"),
+                analyzer = DataAnalyzerPipeline(
                     output_dir=os.path.join(root_dir, "phase2_agent_analysis", "data", "output"),
-                ).run()
+                )
+                # Use in-memory data instead of loading from file
+                result = analyzer.analyze_from_data(self._data_context['cleaned_reviews'])
+                analyzer.save(result)
+                # Store analyzed reviews in memory for next phases
+                self._data_context['analyzed_reviews'] = result['analyzed_reviews']
 
             self._run_agent(run_id, "Review Analyzer", "analysis", run_analyzer, file_logger)
 
             # ── Agent 4: Theme Clustering ─────────────────────────────────
             def run_clustering():
-                ThemeClusteringPipeline(
-                    input_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "analyzed_reviews.json"),
+                clustering = ThemeClusteringPipeline(
                     output_dir=os.path.join(root_dir, "phase2_agent_analysis", "data", "output"),
-                ).run()
+                )
+                # Use in-memory analyzed reviews
+                themes = clustering.analyze_from_data(self._data_context['analyzed_reviews'])
+                clustering.save(themes)
+                # Store themes in memory
+                self._data_context['themes'] = themes
 
             self._run_agent(run_id, "Theme Clustering", "clustering", run_clustering, file_logger)
 
             # ── Agent 5: User Segmentation ────────────────────────────────
             def run_segmentation():
-                UserSegmentationPipeline(
-                    input_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "analyzed_reviews.json"),
+                segmentation = UserSegmentationPipeline(
                     output_dir=os.path.join(root_dir, "phase2_agent_analysis", "data", "output"),
-                ).run()
+                )
+                # Use in-memory analyzed reviews
+                segments = segmentation.analyze_from_data(self._data_context['analyzed_reviews'])
+                segmentation.save(segments)
+                # Store segments in memory
+                self._data_context['segments'] = segments
 
             self._run_agent(run_id, "User Segmentation", "segmentation", run_segmentation, file_logger)
 
             # ── Agent 6: Product Insight Generator ────────────────────────
             def run_insights():
-                ProductInsightPipeline(
-                    analyzed_reviews_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "analyzed_reviews.json"),
-                    themes_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "themes.json"),
-                    segments_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "segments.json"),
+                insights_pipeline = ProductInsightPipeline(
                     output_dir=os.path.join(root_dir, "phase2_agent_analysis", "data", "output"),
-                ).run()
+                )
+                # Use in-memory data
+                insights = insights_pipeline.analyze_from_data(
+                    self._data_context['analyzed_reviews'],
+                    self._data_context['themes'],
+                    self._data_context['segments']
+                )
+                insights_pipeline.save(insights)
+                # Store insights in memory
+                self._data_context['insights'] = insights.model_dump()
 
             self._run_agent(run_id, "Product Insight Generator", "insights", run_insights, file_logger)
 
             # ── Agent 7: Executive Report Generator ───────────────────────
             def run_report():
-                ExecutiveReportPipeline(
-                    analyzed_reviews_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "analyzed_reviews.json"),
-                    themes_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "themes.json"),
-                    segments_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "segments.json"),
-                    insights_path=os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "product_insights.json"),
+                report_pipeline = ExecutiveReportPipeline(
                     output_dir=os.path.join(root_dir, "phase2_agent_analysis", "data", "output"),
-                ).run()
+                )
+                # Calculate metrics from in-memory data
+                metrics = report_pipeline.calculate_metrics(self._data_context['analyzed_reviews'])
+                
+                # Convert themes and segments to proper format
+                from models import ExecutiveReportTheme, ExecutiveReportSegment
+                total_theme_reviews = sum(len(t.get("supporting_reviews", [])) for t in self._data_context['themes'])
+                themes_objs = []
+                for t in self._data_context['themes']:
+                    cnt = len(t.get("supporting_reviews", []))
+                    pct = (cnt / total_theme_reviews) * 100 if total_theme_reviews > 0 else 0.0
+                    themes_objs.append(
+                        ExecutiveReportTheme(
+                            theme_name=t["theme_name"],
+                            description=t["description"],
+                            review_count=cnt,
+                            percentage=round(pct, 2)
+                        )
+                    )
+                
+                total_seg_reviews = sum(s.get("review_count", 0) for s in self._data_context['segments'])
+                segments_objs = []
+                for s in self._data_context['segments']:
+                    cnt = s.get("review_count", 0)
+                    pct = (cnt / total_seg_reviews) * 100 if total_seg_reviews > 0 else 0.0
+                    segments_objs.append(
+                        ExecutiveReportSegment(
+                            segment_name=s["segment_name"],
+                            description=s["description"],
+                            review_count=cnt,
+                            percentage=round(pct, 2)
+                        )
+                    )
+                
+                # Generate report using in-memory data
+                report = report_pipeline.report_agent.generate_report(
+                    metrics, themes_objs, segments_objs, self._data_context['insights']
+                )
+                report_pipeline.save(report)
+                
                 # Promote reports to project root
                 shutil.copy2(
                     os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "executive_report.json"),

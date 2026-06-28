@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import logging
 import time
@@ -8,6 +9,11 @@ from typing import Optional, List, Dict
 from groq import Groq
 import instructor
 from tenacity import retry, stop_after_attempt, wait_exponential
+
+# Path setup for imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+if os.path.join(root_dir, "phase2_agent_analysis", "src") not in sys.path:
+    sys.path.insert(0, os.path.join(root_dir, "phase2_agent_analysis", "src"))
 
 from models import (
     ExecutiveReportSchema, ExecutiveReportMetrics, ExecutiveReportTheme,
@@ -232,7 +238,7 @@ class ExecutiveReportAgent:
             recommendations=recommendations
         )
 
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=3, max=10), reraise=True)
+    @retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=2, min=4, max=30), reraise=True)
     def generate_report(
         self,
         metrics: ExecutiveReportMetrics,

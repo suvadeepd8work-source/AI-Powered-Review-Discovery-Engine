@@ -1,12 +1,12 @@
 {
-  "total_input": 3989,
+  "total_input": 97,
   "removed_empty": 0,
-  "removed_too_short": 1011,
-  "removed_emoji_only": 65,
+  "removed_too_short": 40,
+  "removed_emoji_only": 2,
   "removed_duplicate": 0,
-  "removed_non_english": 177,
-  "removed_spam": 0,
-  "total_removed": 1253,
-  "total_output": 2736,
-  "cleaning_timestamp": "2026-06-24T20:26:42.878356Z"
+  "removed_non_english": 1,
+  "removed_spam": 2,
+  "total_removed": 45,
+  "total_output": 52,
+  "cleaning_timestamp": "2026-06-28T18:40:41.118189Z"
 }

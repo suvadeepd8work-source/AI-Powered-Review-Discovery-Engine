@@ -1,0 +1,115 @@
+name: Weekly Review Analysis Pipeline
+
+on:
+  schedule:
+    # Run every Monday at 10:00 AM IST (4:30 AM UTC)
+    - cron: '30 4 * * 1'
+  
+  # Allow manual workflow dispatch
+  workflow_dispatch:
+    inputs:
+      run_mode:
+        description: 'Execution mode'
+        required: true
+        default: 'schedule'
+        type: choice
+        options:
+          - schedule
+          - run-now
+          - status
+
+jobs:
+  pipeline-execution:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r phase3_orchestration/requirements.txt
+          pip install -r phase2_agent_analysis/requirements.txt
+          pip install -r phase1_data_ingestion/requirements.txt
+          pip install instructor groq openai python-dotenv
+      
+      - name: Create logs directory
+        run: |
+          mkdir -p logs/scheduler
+          mkdir -p phase2_agent_analysis/data/output
+          mkdir -p phase5_frontend_ui/public/data
+      
+      - name: Execute pipeline
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          DB_CONN_STR: sqlite:///pipeline_state.db
+        run: |
+          if [ "${{ github.event.inputs.run_mode }}" = "status" ]; then
+            python phase3_orchestration/src/scheduler.py --mode status
+          elif [ "${{ github.event.inputs.run_mode }}" = "run-now" ]; then
+            python phase3_orchestration/src/scheduler.py --mode run-now
+          else
+            python phase3_orchestration/src/scheduler.py --mode run-now
+          fi
+      
+      - name: Upload pipeline artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-results
+          path: |
+            phase2_agent_analysis/data/output/*.json
+            phase2_agent_analysis/data/output/*.md
+            logs/scheduler/*.log
+            pipeline_state.db
+          retention-days: 30
+      
+      - name: Upload executive report
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: executive-report
+          path: |
+            executive_report.json
+            executive_report.md
+          retention-days: 90
+      
+      - name: Upload scheduler logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scheduler-logs
+          path: logs/scheduler/
+          retention-days: 30
+      
+      - name: Create workflow summary
+        if: always()
+        run: |
+          echo "## Pipeline Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Execution Time:** $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "**Trigger:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Run Mode:** ${{ github.event.inputs.run_mode || 'schedule' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f "executive_report.json" ]; then
+            echo "### ✅ Pipeline Completed Successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Executive report generated and uploaded as artifact." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### ❌ Pipeline Execution Issues" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Check the scheduler logs for details." >> $GITHUB_STEP_SUMMARY
+          fi
+      
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Pipeline execution failed. Check the logs for details."

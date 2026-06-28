@@ -221,6 +221,47 @@ phase3_orchestration/
 2. The orchestrator returns a `run_id` and registers the job.
 3. Client polls `GET /api/pipeline/status?run_id=xxx` for status.
 
+#### Scheduler Integration
+The orchestrator includes an automated scheduler for weekly pipeline execution:
+
+**Schedule Configuration:**
+- **Frequency:** Weekly (every Monday)
+- **Time:** 10:00 AM IST (Asia/Kolkata timezone)
+- **Implementation:** APScheduler with BackgroundScheduler
+- **Job ID:** `weekly_pipeline_execution`
+
+**Scheduler Features:**
+- Automatic review collection and analysis
+- Frontend data synchronization after pipeline completion
+- Comprehensive scheduler logging to database and file
+- Event listeners for job execution tracking
+- Graceful shutdown handling
+- Manual execution support (`--mode run-now`)
+- Status query support (`--mode status`)
+
+**Scheduler Storage:**
+- **Database Table:** `scheduler_logs`
+  - `log_id`: UUID (Primary Key)
+  - `job_name`: String
+  - `status`: String ('pending' | 'running' | 'completed' | 'failed')
+  - `executed_at`: Timestamp
+  - `next_run_time`: Timestamp
+  - `error_message`: Text
+  - `timestamp`: Timestamp
+
+**Scheduler Logging:**
+- File-based logs in `logs/scheduler/scheduler_YYYYMMDD.log`
+- Database logging via `SchedulerLog` model
+- Event listeners for successful and failed job executions
+- Next run time tracking
+
+**Frontend Auto-Update:**
+After pipeline completion, the scheduler automatically:
+- Copies latest reports to `phase5_frontend_ui/public/data/`
+- Updates executive report, themes, segments, insights, and analyzed reviews
+- Creates `last_update.json` with timestamp
+- Ensures frontend displays most recent data
+
 #### Storage
 - **Database Table**: `pipeline_runs`
   - `run_id`: UUID (Primary Key)
@@ -320,13 +361,15 @@ phase4_backend_api/
 
 ---
 
-### Phase 5: Frontend UI
+### Phase 5: Frontend UI (Next.js)
 
 #### Objectives
-Provide a premium, high-fidelity responsive user interface dashboard enabling users to trigger the analysis run, view live agent logs, browse reviews, interact with theme clusters, and read executive summaries.
+Provide a premium, high-fidelity responsive user interface dashboard enabling users to trigger the analysis run, view live agent logs, browse reviews, interact with theme clusters, and read executive summaries using modern Next.js framework.
+
+**CRITICAL ARCHITECTURAL CONSTRAINT**: The frontend must never directly access JSON files. All data must be consumed exclusively through backend API endpoints.
 
 #### Inputs
-- REST API queries.
+- REST API queries only (no direct file access).
 
 #### Outputs
 - Interactive UI components, dashboard visualizations, and report export features.
@@ -334,50 +377,82 @@ Provide a premium, high-fidelity responsive user interface dashboard enabling us
 #### Folder Structure
 ```
 phase5_frontend_ui/
-├── public/
 ├── src/
-│   ├── assets/
+│   ├── app/
+│   │   ├── layout.tsx          # Root layout with navigation
+│   │   ├── page.tsx            # Overview dashboard page
+│   │   ├── themes/page.tsx     # Theme clusters page
+│   │   ├── pain-points/page.tsx # Pain points page
+│   │   ├── feature-requests/page.tsx # Feature requests page
+│   │   ├── segments/page.tsx   # User segments page
+│   │   ├── executive-summary/page.tsx # Executive report page
+│   │   ├── search/page.tsx     # Search reviews page
+│   │   ├── pipeline/page.tsx   # Pipeline status page
+│   │   ├── globals.css         # Global styles with Tailwind
+│   │   └── layout.tsx
 │   ├── components/
-│   │   ├── PipelineProgress.jsx # Phase 3 progress viewer
-│   │   ├── ReviewExplorer.jsx   # Phase 1 & 2 search board
-│   │   ├── ClusterCard.jsx      # Phase 2 Agent 4 visual cards
-│   │   └── ExecutiveReport.jsx  # Phase 2 Agent 7 report viewer
-│   ├── hooks/
-│   │   ├── useFetch.js
-│   │   └── usePipeline.js
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css             # Vanilla CSS design tokens & grid rules
-├── package.json
-└── vite.config.js
+│   │   ├── Navigation.tsx      # Main navigation component
+│   │   └── MetricCard.tsx      # Reusable metric card component
+│   └── lib/
+│       ├── api.ts              # Centralized API client (NO direct JSON access)
+│       └── utils.ts            # Utility functions
+├── .env.local                  # API base URL configuration
+├── .env.example                # Example environment variables
+├── package.json                # Next.js dependencies
+├── tsconfig.json               # TypeScript configuration
+├── tailwind.config.ts         # Tailwind CSS configuration
+├── postcss.config.js           # PostCSS configuration
+└── next.config.js              # Next.js configuration
 ```
 
+#### Dashboard Pages
+1. **Overview** (`/`) - High-level metrics and system status
+2. **Themes** (`/themes`) - Theme clusters from Agent 4
+3. **Pain Points** (`/pain-points`) - User frustrations and barriers
+4. **Feature Requests** (`/feature-requests`) - User-requested features
+5. **User Segments** (`/segments`) - User behavior segments from Agent 5
+6. **Executive Summary** (`/executive-summary`) - Comprehensive report from Agent 7
+7. **Search Reviews** (`/search`) - Search and filter analyzed reviews
+8. **Pipeline Status** (`/pipeline`) - Monitor and control pipeline execution
+
 #### API Flow
-1. React components fetch API routes on mount.
-2. Event handlers call POST methods (e.g. click "Start Pipeline" runs `POST /api/pipeline/run`).
-3. Set polling interval of 2 seconds while pipeline state is `running`.
+1. Next.js server components fetch data from backend APIs on page load.
+2. Client components use API client from `lib/api.ts` for interactive features.
+3. All API calls go through the backend at the configured `NEXT_PUBLIC_API_BASE_URL`.
+4. Event handlers call POST methods (e.g. click "Start Pipeline" runs `POST /api/pipeline/run`).
+5. Set polling interval of 2 seconds while pipeline state is `running`.
+6. **No direct JSON file imports or fetches from the frontend** - all data comes from backend APIs.
 
 #### Storage
-- In-memory state management (React `useState`, `useContext`).
+- Server-side data fetching with Next.js server components.
+- Client-side state management with React hooks (`useState`, `useEffect`).
 - Local Storage for persisting UI settings (e.g., user theme preference).
+- **No local JSON file storage or access** - all data is fetched from backend.
 
 #### Execution Flow
-1. Mount App -> Check API connectivity.
-2. Render base dashboard structure.
-3. Fetch metadata, charts data, and tables dynamically based on route active state.
+1. Next.js app initializes with layout and navigation.
+2. Server components fetch initial data from backend APIs.
+3. Render base dashboard structure with Tailwind CSS styling.
+4. Client components handle interactive features (search, pipeline control).
+5. Display loading states and error messages for failed API calls.
 
 #### Error Handling
 - React Error Boundaries wrap layout templates to catch component runtime errors.
-- Display a modal error container when the backend server is unreachable.
+- Display error messages when backend server is unreachable.
+- API client implements automatic retry logic (3 attempts with exponential backoff).
 
 #### Retry Mechanism
-- Client-side fetch requests: automatically retry fetch requests up to 3 times on failed connections.
+- Client-side fetch requests: automatically retry fetch requests up to 3 times on failed connections with exponential backoff (1s, 2s, 4s).
+- Pipeline status polling continues until completion or failure.
 
 #### Logging
 - Output dev-mode console debug logs; omit in production build configurations.
+- Log API errors for debugging backend connectivity issues.
 
 #### Testing Strategy
 - React Testing Library to test component renders, verify search input field triggers, and mock fetch calls to test loading and error alerts.
+- Test API client with mocked backend responses to ensure no direct file access occurs.
+- End-to-end testing with Playwright for critical user flows.
 
 ---
 

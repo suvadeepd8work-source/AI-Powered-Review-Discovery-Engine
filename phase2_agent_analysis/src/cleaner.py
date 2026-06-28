@@ -1,4 +1,5 @@
 import os
+import sys
 import re
 import json
 from datetime import datetime, timezone
@@ -7,6 +8,11 @@ from groq import Groq
 import instructor
 from langdetect import detect, LangDetectException
 from tenacity import retry, stop_after_attempt, wait_exponential
+
+# Path setup for imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+if os.path.join(root_dir, "phase2_agent_analysis", "src") not in sys.path:
+    sys.path.insert(0, os.path.join(root_dir, "phase2_agent_analysis", "src"))
 
 from models import CleanedReviewOutput
 from prompts import CLEANER_SYSTEM_PROMPT
@@ -46,7 +52,7 @@ class ReviewCleanerAgent:
         self.api_key = api_key or os.environ.get("GROQ_API_KEY")
         self.client = instructor.patch(Groq(api_key=self.api_key)) if self.api_key else None
 
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=8))
+    @retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=2, min=4, max=30))
     def clean_review(self, raw_text: str) -> CleanedReviewOutput:
         if not self.client:
             # Fallback if no API key is present

@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import logging
 import time
@@ -9,6 +10,11 @@ from typing import Optional, List, Dict
 from groq import Groq
 import instructor
 from tenacity import retry, stop_after_attempt, wait_exponential
+
+# Path setup for imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+if os.path.join(root_dir, "phase2_agent_analysis", "src") not in sys.path:
+    sys.path.insert(0, os.path.join(root_dir, "phase2_agent_analysis", "src"))
 
 from models import UserSegmentSchema, UserSegment, UserSegmentReview
 from prompts import SEGMENTATION_SYSTEM_PROMPT
@@ -240,7 +246,7 @@ class UserSegmentationAgent:
         ]
         return UserSegmentSchema(segments=segment_list)
 
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=8), reraise=True)
+    @retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=2, min=4, max=30), reraise=True)
     def segment_batch(self, batch_reviews: List[dict]) -> UserSegmentSchema:
         """Send a batch of reviews to Groq LLM for user segmentation."""
         if not self.client:
@@ -301,6 +307,74 @@ class UserSegmentationPipeline:
             data = json.load(f)
         logger.info(f"Loaded {len(data)} analyzed reviews.")
         return data
+
+    def analyze_from_data(self, analyzed_reviews: list) -> list:
+        """Segment reviews from in-memory data instead of loading from file."""
+        total = len(analyzed_reviews)
+
+        if total == 0:
+            logger.warning("No reviews found for user segmentation.")
+            return []
+
+        logger.info(f"Starting user segmentation for {total} reviews in batches of {self.batch_size}...")
+
+        merged_segments: Dict[str, dict] = {}
+        total_batches = (total + self.batch_size - 1) // self.batch_size
+
+        for batch_num, i in enumerate(range(0, total, self.batch_size), start=1):
+            batch_chunk = analyzed_reviews[i: i + self.batch_size]
+            logger.info(
+                f"Processing segmentation batch {batch_num}/{total_batches} "
+                f"(reviews {i + 1}–{min(i + self.batch_size, total)} of {total})..."
+            )
+
+            try:
+                batch_output = self.segmentation_agent.segment_batch(batch_chunk)
+            except Exception as e:
+                logger.error(
+                    f"Failed all retries for segmentation batch {batch_num}: {e}. "
+                    "Falling back to heuristic segmentation."
+                )
+                batch_output = self.segmentation_agent._segment_batch_fallback(batch_chunk)
+
+            for seg in batch_output.segments:
+                seg_name = seg.segment_name.strip()
+
+                for pred_seg in SEGMENT_KEYWORDS.keys():
+                    if pred_seg.lower() == seg_name.lower():
+                        seg_name = pred_seg
+                        break
+
+                if seg_name not in merged_segments:
+                    merged_segments[seg_name] = {
+                        "segment_name": seg_name,
+                        "description": SEGMENT_DESCRIPTIONS.get(seg_name, seg.description),
+                        "traits": SEGMENT_TRAITS.get(seg_name, seg.traits),
+                        "primary_challenges": SEGMENT_CHALLENGES.get(seg_name, seg.primary_challenges),
+                        "jobs_to_be_done": SEGMENT_JTBD.get(seg_name, seg.jobs_to_be_done),
+                        "representative_reviews": [],
+                        "review_count": 0
+                    }
+
+                merged_segments[seg_name]["review_count"] += seg.review_count
+
+                existing_reviews = {r["review"] for r in merged_segments[seg_name]["representative_reviews"]}
+                for rev in seg.representative_reviews:
+                    if rev.review not in existing_reviews and len(merged_segments[seg_name]["representative_reviews"]) < 8:
+                        merged_segments[seg_name]["representative_reviews"].append({
+                            "review": rev.review,
+                            "rating": rev.rating,
+                            "review_date": rev.review_date
+                        })
+                        existing_reviews.add(rev.review)
+
+        sorted_segments = sorted(
+            merged_segments.values(),
+            key=lambda x: x["review_count"],
+            reverse=True
+        )
+
+        return sorted_segments
 
     def analyze(self) -> list:
         reviews = self.load_reviews()

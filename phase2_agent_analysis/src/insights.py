@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import logging
 import time
@@ -9,6 +10,11 @@ from typing import Optional, List, Dict
 from groq import Groq
 import instructor
 from tenacity import retry, stop_after_attempt, wait_exponential
+
+# Path setup for imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+if os.path.join(root_dir, "phase2_agent_analysis", "src") not in sys.path:
+    sys.path.insert(0, os.path.join(root_dir, "phase2_agent_analysis", "src"))
 
 from models import ProductInsight, ProductInsightSchema
 from prompts import INSIGHTS_SYSTEM_PROMPT
@@ -307,7 +313,7 @@ class ProductInsightAgent:
             long_term_opportunities=inject_freq(FALLBACK_LONG_TERM, pain_point_counts)
         )
 
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=3, max=10), reraise=True)
+    @retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=2, min=4, max=30), reraise=True)
     def generate_insights(
         self,
         themes: List[dict],
@@ -394,6 +400,39 @@ class ProductInsightPipeline:
             segments = []
 
         return analyzed_reviews, themes, segments
+
+    def analyze_from_data(self, analyzed_reviews: list, themes: list, segments: list) -> ProductInsightSchema:
+        """Generate insights from in-memory data instead of loading from files."""
+        top_pain_points = _aggregate_pain_points(analyzed_reviews, TOP_N_PAIN_POINTS)
+        top_feature_requests = _aggregate_feature_requests(analyzed_reviews, TOP_N_FEATURES)
+
+        logger.info(f"Top pain points identified: {len(top_pain_points)}")
+        logger.info(f"Top feature requests identified: {len(top_feature_requests)}")
+
+        if top_pain_points:
+            logger.info("  Most frequent pain points:")
+            for pp in top_pain_points[:5]:
+                logger.info(f"    #{pp['count']:>4}x — {pp['text'][:70]}")
+
+        if top_feature_requests:
+            logger.info("  Most requested features:")
+            for fr in top_feature_requests[:5]:
+                logger.info(f"    #{fr['count']:>4}x — {fr['text'][:70]}")
+
+        try:
+            insights = self.insight_agent.generate_insights(
+                themes=themes,
+                segments=segments,
+                top_pain_points=top_pain_points,
+                top_feature_requests=top_feature_requests
+            )
+        except Exception as e:
+            logger.error(f"All retries failed for insight generation: {e}. Using fallback insights.")
+            pain_counts = {p["text"]: p["count"] for p in top_pain_points}
+            feat_counts = {f["text"]: f["count"] for f in top_feature_requests}
+            insights = self.insight_agent._fallback_insights(pain_counts, feat_counts)
+
+        return insights
 
     def analyze(self) -> ProductInsightSchema:
         analyzed_reviews, themes, segments = self.load_data()
