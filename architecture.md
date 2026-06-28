@@ -456,7 +456,119 @@ phase5_frontend_ui/
 
 ---
 
-## 4. Multi-Agent System Detail (7 AI Agents)
+## 4. Production Deployment Architecture
+
+### Deployment Platforms
+
+**Frontend:** Next.js 14 deployed on Vercel
+**Backend:** FastAPI deployed on Railway or Render
+**Database:** SQLite (development) / PostgreSQL (production recommended)
+**CI/CD:** GitHub Actions for automated weekly pipeline execution
+
+### Deployment Configuration
+
+#### Frontend (Vercel)
+- **Framework:** Next.js 14 with TypeScript
+- **Build Command:** `npm run build`
+- **Output Directory:** `.next`
+- **Environment Variables:**
+  - `NEXT_PUBLIC_API_BASE_URL`: Backend API URL (Railway/Render)
+- **Configuration File:** `vercel.json`
+- **Automatic:** SSL, CDN, edge caching
+
+#### Backend (Railway/Render)
+- **Framework:** FastAPI with Uvicorn
+- **Build Command:** `pip install -r requirements.txt`
+- **Start Command:** `uvicorn src.main:app --host 0.0.0.0 --port $PORT`
+- **Process File:** `Procfile`
+- **Environment Variables:**
+  - `GROQ_API_KEY`: Groq API key for LLM processing
+  - `DB_CONN_STR`: Database connection string
+  - `ALLOWED_ORIGINS`: Comma-separated list of allowed CORS origins (Vercel URL)
+  - `SCHEDULE_TIME`: Scheduler time (10:00)
+  - `SCHEDULE_DAY`: Scheduler day (mon)
+  - `TIMEZONE`: Scheduler timezone (Asia/Kolkata)
+  - Batch size configurations
+
+#### CORS Configuration
+- **Development:** Allows localhost origins
+- **Production:** Restricts to specific Vercel domain(s)
+- **Environment Variable:** `ALLOWED_ORIGINS`
+- **Implementation:** FastAPI CORSMiddleware in `main.py`
+
+#### GitHub Actions (CI/CD)
+- **Schedule:** Weekly (Monday 10:00 AM IST / 4:30 AM UTC)
+- **Trigger:** Cron schedule + manual workflow dispatch
+- **Execution:** Full pipeline run with artifact uploads
+- **Artifacts:** Pipeline results, executive reports, scheduler logs
+- **Retention:** 30-90 days depending on artifact type
+- **Configuration:** `.github/workflows/weekly-pipeline.yml`
+
+### Production Architecture Diagram
+
+```mermaid
+graph TD
+    User[User Browser] -->|HTTPS| Vercel[Vercel Frontend]
+    Vercel -->|API Calls| Railway[Railway Backend]
+    Railway -->|Database Queries| DB[(PostgreSQL/SQLite)]
+    Railway -->|Groq API| Groq[Groq LLM Service]
+    
+    GitHub[GitHub Actions] -->|Weekly Schedule| Railway
+    GitHub -->|Manual Trigger| Railway
+    
+    Vercel -.->|CORS Validation| Railway
+    Railway -.->|Origin Check| Vercel
+```
+
+### Environment Variable Flow
+
+1. **Frontend (Vercel):**
+   - `NEXT_PUBLIC_API_BASE_URL` → Backend URL
+   - Used in `lib/api.ts` for all API calls
+
+2. **Backend (Railway/Render):**
+   - `GROQ_API_KEY` → Groq API authentication
+   - `ALLOWED_ORIGINS` → CORS validation
+   - `DB_CONN_STR` → Database connection
+   - Scheduler configuration variables
+
+3. **GitHub Actions:**
+   - `GROQ_API_KEY` → From repository secrets
+   - `BACKEND_URL` → Backend deployment URL
+   - `FRONTEND_URL` → Frontend deployment URL
+
+### Security Considerations
+
+- **API Keys:** Stored in environment variables, never committed
+- **CORS:** Restricted to specific production domains
+- **HTTPS:** Automatic SSL on all platforms
+- **Secrets:** GitHub Secrets for CI/CD
+- **Database:** Consider PostgreSQL for production with connection pooling
+
+### Scaling Strategy
+
+- **Frontend:** Vercel automatically scales with edge network
+- **Backend:** Upgrade Railway/Render instance based on load
+- **Database:** Migrate to PostgreSQL for better performance
+- **API Rate Limits:** Monitor Groq API usage, upgrade tier if needed
+
+### Monitoring and Logging
+
+- **Vercel:** Build logs, analytics, error tracking
+- **Railway/Render:** Application logs, resource usage
+- **GitHub Actions:** Workflow execution logs and summaries
+- **Application:** Structured logging to database and files
+
+### Deployment Documentation
+
+- **Deployment Guide:** `DEPLOYMENT_GUIDE.md` - Step-by-step deployment instructions
+- **Deployment Readiness:** `DEPLOYMENT_READINESS.md` - Pre-deployment checklist
+- **GitHub Actions:** `.github/README.md` - CI/CD documentation
+- **Environment Templates:** `.env.example` files in each phase
+
+---
+
+## 5. Multi-Agent System Detail (7 AI Agents)
 
 Below are implementation parameters for each agent in the system:
 
