@@ -12,9 +12,12 @@ export default function PipelinePage() {
   const [isPolling, setIsPolling] = useState(false);
 
   const startPipeline = async () => {
+    console.log('[Pipeline] Start button clicked');
     setError('');
     try {
+      console.log('[Pipeline] Calling runPipeline API...');
       const result = await runPipeline();
+      console.log('[Pipeline] Pipeline started:', result);
       setPipelineStatus({
         run_id: result.run_id,
         status: 'running',
@@ -24,8 +27,8 @@ export default function PipelinePage() {
       });
       setIsPolling(true);
     } catch (err) {
+      console.error('[Pipeline] Error starting pipeline:', err);
       setError('Failed to start pipeline');
-      console.error(err);
     }
   };
 
