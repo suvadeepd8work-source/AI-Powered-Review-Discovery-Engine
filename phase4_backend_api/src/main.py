@@ -35,8 +35,8 @@ app = FastAPI(
 
 # ── CORS ──────────────────────────────────────────────────────────────────────
 
-# Get allowed origins from environment variable, default to localhost and Vercel for development
-allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:8000,https://ai-powered-review-discovery-engine-zeta.vercel.app,https://ai-powered-review-discovery-engine-orpin.vercel.app").split(",")
+# Get allowed origins from environment variable, default to all origins for development
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 
 app.add_middleware(
     CORSMiddleware,
