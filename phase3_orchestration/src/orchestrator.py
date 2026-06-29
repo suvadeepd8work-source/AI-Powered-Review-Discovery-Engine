@@ -258,7 +258,8 @@ class AgentPipelineOrchestrator:
                 )
                 cleaner.run()
                 # Load cleaned reviews into memory for next phase
-                with open(os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "filtered_reviews.json"), 'r', encoding='utf-8') as f:
+                cleaned_file = os.path.join(root_dir, "phase2_agent_analysis", "data", "output", "filtered_reviews.json")
+                with open(cleaned_file, 'r', encoding='utf-8') as f:
                     content = f.read()
                     self._data_context['cleaned_reviews'] = eval(content)
 
