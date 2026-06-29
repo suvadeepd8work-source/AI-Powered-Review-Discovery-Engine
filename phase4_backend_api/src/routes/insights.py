@@ -154,7 +154,14 @@ def get_latest_analysis():
         return LatestAnalysisResponse(data_available=False, report_available=loader.report_available())
 
     # Sentiment distribution
-    sentiments = [r.get("sentiment", "").lower() for r in reviews if r.get("sentiment")]
+    sentiments = []
+    for r in reviews:
+        # Check for sentiment at root level or nested in analysis object
+        sentiment = r.get("sentiment")
+        if not sentiment and isinstance(r.get("analysis"), dict):
+            sentiment = r.get("analysis", {}).get("sentiment")
+        if sentiment:
+            sentiments.append(str(sentiment).lower())
     counts = Counter(sentiments)
     sentiment_dist = SentimentDistribution(
         positive=counts.get("positive", 0),
