@@ -1,0 +1,275 @@
+{
+  "generated_at": "2026-06-29T15:58:11.165313+00:00",
+  "summary": {
+    "total_insights": 16,
+    "top_frustrations_count": 5,
+    "feature_requests_count": 5,
+    "quick_wins_count": 3,
+    "long_term_opportunities_count": 3
+  },
+  "top_frustrations": [
+    {
+      "title": "Excessive Ad Frequency",
+      "description": "Users are frustrated with the excessive ad frequency, which disrupts their listening experience.",
+      "category": "Top Frustration",
+      "severity": 9,
+      "frequency": 15,
+      "impact": 8,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "top much ads man,earlier it was one will pop up after every song, freaking annoying but i could still manage now atleast three consecutive ads are coming one after another"
+      ],
+      "recommended_action": "Reduce ad frequency to improve user experience and reduce frustration."
+    },
+    {
+      "title": "App Crashes and Bugs",
+      "description": "Users are frustrated with app crashes and bugs, which disrupt their listening experience and cause frustration.",
+      "category": "Top Frustration",
+      "severity": 9,
+      "frequency": 10,
+      "impact": 8,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "it is crashing too much although i have subscription to it... it crashes all the time."
+      ],
+      "recommended_action": "Fix app crashes and improve overall app stability to improve user experience."
+    },
+    {
+      "title": "Poor Music Discovery",
+      "description": "Users are frustrated with the poor music discovery features, which make it difficult to find new music and artists.",
+      "category": "Top Frustration",
+      "severity": 7,
+      "frequency": 8,
+      "impact": 6,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "The app is getting more worse than before we can't play previous songs, we can't choose the song by ourselves means every basic feature has been locked and it's just forcing to take the premium"
+      ],
+      "recommended_action": "Improve music discovery features by enhancing recommendation algorithms and providing more exposure to new artists."
+    },
+    {
+      "title": "Limited Offline Mode",
+      "description": "Users are frustrated with the limited offline mode, which does not allow them to listen to music without an internet connection.",
+      "category": "Top Frustration",
+      "severity": 6,
+      "frequency": 5,
+      "impact": 5,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "I've been a premium Spotify user fo some years now but for some reason, i can't open my app when my phone isn't connected to the internet."
+      ],
+      "recommended_action": "Improve offline mode by allowing users to download music for offline playback and reducing loading times."
+    },
+    {
+      "title": "Poor Customer Support",
+      "description": "Users are frustrated with the poor customer support, which does not provide helpful solutions to their problems.",
+      "category": "Top Frustration",
+      "severity": 5,
+      "frequency": 5,
+      "impact": 4,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "Never had an issue before, but recently changed phones and the app won't start ? and is very slow if it does open. is this a known issue? I hope it can be fixed soon."
+      ],
+      "recommended_action": "Improve customer support by increasing response times and providing more helpful solutions."
+    }
+  ],
+  "feature_requests": [
+    {
+      "title": "Ad-Free Experience",
+      "description": "Users want an ad-free experience, or at least the option to pay for one, as the current ad frequency is frustrating.",
+      "category": "Feature Request",
+      "severity": 9,
+      "frequency": 15,
+      "impact": 8,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "top much ads man,earlier it was one will pop up after every song, freaking annoying but i could still manage now atleast three consecutive ads are coming one after another"
+      ],
+      "recommended_action": "Offer an ad-free option, or reduce ad frequency to improve user experience."
+    },
+    {
+      "title": "Offline Mode Improvement",
+      "description": "Users want to be able to listen to music offline without interruptions, and with better download management.",
+      "category": "Feature Request",
+      "severity": 8,
+      "frequency": 10,
+      "impact": 9,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "I've been a premium Spotify user fo some years now but for some reason, i can't open my app when my phone isn't connected to the internet.",
+        "Extremely slow and incompetent app. The loading times are crazy and you need the fastest Internet connection possible just to get decent download speeds."
+      ],
+      "recommended_action": "Improve offline mode by allowing users to download music for offline playback and reducing loading times."
+    },
+    {
+      "title": "Enhanced Playlist Management",
+      "description": "Users want better playlist management features, such as the ability to choose specific songs and manage large playlists.",
+      "category": "Feature Request",
+      "severity": 7,
+      "frequency": 12,
+      "impact": 6,
+      "affected_segments": [
+        "Power Users",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "All cute and nice on the first week, then, it shows it's true colors. Forced to listen to a Playlist in shuffle? Hell nah, instant-unistall."
+      ],
+      "recommended_action": "Enhance playlist management features by allowing users to choose specific songs and manage large playlists more efficiently."
+    },
+    {
+      "title": "Improved Music Discovery",
+      "description": "Users want better music discovery features, such as improved recommendations and more exposure to new artists.",
+      "category": "Feature Request",
+      "severity": 6,
+      "frequency": 8,
+      "impact": 7,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "The app is getting more worse than before we can't play previous songs, we can't choose the song by ourselves means every basic feature has been locked and it's just forcing to take the premium"
+      ],
+      "recommended_action": "Improve music discovery features by enhancing recommendation algorithms and providing more exposure to new artists."
+    },
+    {
+      "title": "Better Customer Support",
+      "description": "Users want better customer support, including more responsive and helpful support teams.",
+      "category": "Feature Request",
+      "severity": 5,
+      "frequency": 5,
+      "impact": 5,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "Never had an issue before, but recently changed phones and the app won't start ? and is very slow if it does open. is this a known issue? I hope it can be fixed soon."
+      ],
+      "recommended_action": "Improve customer support by increasing response times and providing more helpful solutions."
+    }
+  ],
+  "quick_wins": [
+    {
+      "title": "Fix App Crashes",
+      "description": "Fix app crashes and improve overall app stability to improve user experience.",
+      "category": "Quick Win",
+      "severity": 9,
+      "frequency": 10,
+      "impact": 8,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "it is crashing too much although i have subscription to it... it crashes all the time."
+      ],
+      "recommended_action": "Fix app crashes and improve overall app stability to improve user experience."
+    },
+    {
+      "title": "Reduce Ad Frequency",
+      "description": "Reduce ad frequency to improve user experience and reduce frustration.",
+      "category": "Quick Win",
+      "severity": 8,
+      "frequency": 15,
+      "impact": 7,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "supporting_evidence": [
+        "top much ads man,earlier it was one will pop up after every song, freaking annoying but i could still manage now atleast three consecutive ads are coming one after another"
+      ],
+      "recommended_action": "Reduce ad frequency to improve user experience and reduce frustration."
+    },
+    {
+      "title": "Improve Customer Support",
+      "description": "Improve customer support by increasing response times and providing more helpful solutions.",
+      "category": "Quick Win",
+      "severity": 5,
+      "frequency": 5,
+      "impact": 6,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "Never had an issue before, but recently changed phones and the app won't start ? and is very slow if it does open. is this a known issue? I hope it can be fixed soon."
+      ],
+      "recommended_action": "Improve customer support by increasing response times and providing more helpful solutions."
+    }
+  ],
+  "long_term_opportunities": [
+    {
+      "title": "Personalized Music Experience",
+      "description": "Develop a more personalized music experience by incorporating AI-powered recommendations and user behavior analysis.",
+      "category": "Long-term Opportunity",
+      "severity": 4,
+      "frequency": 5,
+      "impact": 9,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "ai slop is getting abundant.. it was pretty good for the first few years. now with price increase i'm not seeing the value anymore..."
+      ],
+      "recommended_action": "Invest in AI-powered recommendation technology to create a more personalized music experience."
+    },
+    {
+      "title": "Expanded Music Catalog",
+      "description": "Expand the music catalog to include more regional and local music, as well as improve discovery features for these genres.",
+      "category": "Long-term Opportunity",
+      "severity": 3,
+      "frequency": 3,
+      "impact": 8,
+      "affected_segments": [
+        "Regional Music Users"
+      ],
+      "supporting_evidence": [
+        "Missing regional artists in catalog"
+      ],
+      "recommended_action": "Expand the music catalog to include more regional and local music, and improve discovery features for these genres."
+    },
+    {
+      "title": "Improved User Interface",
+      "description": "Redesign the user interface to be more intuitive and user-friendly, with a focus on discovery and playlist management.",
+      "category": "Long-term Opportunity",
+      "severity": 2,
+      "frequency": 2,
+      "impact": 7,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "supporting_evidence": [
+        "The lyrics function is not working. This used to be a reliable feature, but now it barely works."
+      ],
+      "recommended_action": "Redesign the user interface to be more intuitive and user-friendly, with a focus on discovery and playlist management."
+    }
+  ]
+}

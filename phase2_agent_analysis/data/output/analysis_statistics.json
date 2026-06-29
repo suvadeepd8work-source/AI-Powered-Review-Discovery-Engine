@@ -1,19 +1,19 @@
 {
-  "total_analyzed": 2736,
+  "total_analyzed": 686,
   "sentiment_counts": {
-    "positive": 1356,
-    "neutral": 1050,
-    "negative": 330
+    "positive": 367,
+    "neutral": 249,
+    "negative": 70
   },
   "emotion_counts": {
-    "neutral": 1050,
-    "satisfaction": 1356,
-    "frustration": 330
+    "neutral": 249,
+    "satisfaction": 367,
+    "frustration": 70
   },
-  "total_pain_points": 330,
-  "total_feature_requests": 499,
-  "total_positive_feedback": 1356,
-  "total_negative_feedback": 330,
-  "total_jtbd": 925,
-  "analysis_timestamp": "2026-06-24T20:48:55.896458Z"
+  "total_pain_points": 70,
+  "total_feature_requests": 116,
+  "total_positive_feedback": 367,
+  "total_negative_feedback": 70,
+  "total_jtbd": 246,
+  "analysis_timestamp": "2026-06-29T15:39:45.934026Z"
 }

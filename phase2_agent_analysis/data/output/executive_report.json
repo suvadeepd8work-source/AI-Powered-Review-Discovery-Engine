@@ -1,0 +1,358 @@
+{
+  "executive_summary": "The current state of user experience is marked by frustration with excessive ad frequency, app crashes, and poor music discovery features. To improve user experience, it is recommended to reduce ad frequency, fix app crashes, and enhance music discovery features. The user segments most affected by these issues are Casual Listeners and Premium Subscribers. Strategic next steps include improving offline mode, offering an ad-free option, and enhancing playlist management features.",
+  "key_metrics": {
+    "total_reviews": 686,
+    "average_rating": 3.52,
+    "sentiment_distribution": {
+      "negative": {
+        "count": 70,
+        "percentage": 10.2
+      },
+      "neutral": {
+        "count": 249,
+        "percentage": 36.3
+      },
+      "positive": {
+        "count": 367,
+        "percentage": 53.5
+      }
+    },
+    "emotion_distribution": {
+      "frustration": {
+        "count": 70,
+        "percentage": 10.2
+      },
+      "neutral": {
+        "count": 249,
+        "percentage": 36.3
+      },
+      "satisfaction": {
+        "count": 367,
+        "percentage": 53.5
+      }
+    },
+    "total_pain_points": 70,
+    "total_feature_requests": 116
+  },
+  "top_themes": [
+    {
+      "theme_name": "Pricing",
+      "description": "Frustrations with price increases, value of premium tiers, or pushy upgrade prompts.",
+      "review_count": 68,
+      "percentage": 23.78
+    },
+    {
+      "theme_name": "Other / General Feedback",
+      "description": "General feedback or miscellaneous complaints.",
+      "review_count": 56,
+      "percentage": 19.58
+    },
+    {
+      "theme_name": "Playlist",
+      "description": "Frustrations with playlist management, queue ordering, or broken shuffle modes.",
+      "review_count": 42,
+      "percentage": 14.69
+    },
+    {
+      "theme_name": "Advertisements",
+      "description": "Complaints about excessive, repetitive, or intrusive advertisements on free tiers.",
+      "review_count": 38,
+      "percentage": 13.29
+    },
+    {
+      "theme_name": "Recommendation Quality",
+      "description": "Issues regarding music recommendation algorithms, repetitive songs, or taste profiling.",
+      "review_count": 19,
+      "percentage": 6.64
+    },
+    {
+      "theme_name": "Performance",
+      "description": "Technical issues including app crashes, lag, slow loading times, errors, or freeze glitches.",
+      "review_count": 16,
+      "percentage": 5.59
+    },
+    {
+      "theme_name": "Offline Listening",
+      "description": "Issues with offline playback, downloads, local files, or listening without internet/Wi-Fi.",
+      "review_count": 14,
+      "percentage": 4.9
+    },
+    {
+      "theme_name": "Discovery",
+      "description": "Difficulty finding new music, lack of exposure to new artists/genres, or discovery hurdles.",
+      "review_count": 11,
+      "percentage": 3.85
+    },
+    {
+      "theme_name": "UI",
+      "description": "Complaints about user interface layout changes, missing lyrics, navigation, or visual styling.",
+      "review_count": 10,
+      "percentage": 3.5
+    },
+    {
+      "theme_name": "Store",
+      "description": "Problems updating the app, downloading from app stores, or installation issues.",
+      "review_count": 7,
+      "percentage": 2.45
+    },
+    {
+      "theme_name": "Search",
+      "description": "Problems with search queries, finding specific tracks, or search functionality.",
+      "review_count": 5,
+      "percentage": 1.75
+    }
+  ],
+  "user_segments": [
+    {
+      "segment_name": "Casual Listeners",
+      "description": "Users who listen occasionally for leisure, typically use the free tier, and are primarily frustrated by ad interruptions.",
+      "review_count": 363,
+      "percentage": 58.55
+    },
+    {
+      "segment_name": "Premium Subscribers",
+      "description": "Paying users who expect flawless app performance and feel betrayed when crashes, bugs, or regressions occur.",
+      "review_count": 107,
+      "percentage": 17.26
+    },
+    {
+      "segment_name": "Free Users",
+      "description": "Non-paying users severely limited by ad interruptions, skip restrictions, and inability to choose songs or use offline mode.",
+      "review_count": 60,
+      "percentage": 9.68
+    },
+    {
+      "segment_name": "Power Users",
+      "description": "Heavy daily listeners who use advanced features, manage large libraries, and expect a premium, full-featured experience.",
+      "review_count": 37,
+      "percentage": 5.97
+    },
+    {
+      "segment_name": "Podcast Users",
+      "description": "Users primarily interested in podcast content, audiobooks, or spoken word — not just music streaming.",
+      "review_count": 26,
+      "percentage": 4.19
+    },
+    {
+      "segment_name": "Students",
+      "description": "Budget-conscious users who listen while studying and actively seek affordable or discounted subscription plans.",
+      "review_count": 16,
+      "percentage": 2.58
+    },
+    {
+      "segment_name": "Fitness Users",
+      "description": "Users who listen during workouts or outdoor activities, requiring uninterrupted playback and strong offline download capabilities.",
+      "review_count": 6,
+      "percentage": 0.97
+    },
+    {
+      "segment_name": "Regional Music Users",
+      "description": "Users listening to regional or local-language music (Bollywood, K-Pop, etc.) who want better regional catalogs and recommendations.",
+      "review_count": 5,
+      "percentage": 0.81
+    }
+  ],
+  "major_pain_points": [
+    {
+      "title": "Excessive Ad Frequency",
+      "description": "Users are frustrated with the excessive ad frequency, which disrupts their listening experience.",
+      "category": "Top Frustration",
+      "severity": 9,
+      "impact": 8,
+      "priority_score": 72,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "recommended_action": "Reduce ad frequency to improve user experience and reduce frustration."
+    },
+    {
+      "title": "App Crashes and Bugs",
+      "description": "Users are frustrated with app crashes and bugs, which disrupt their listening experience and cause frustration.",
+      "category": "Top Frustration",
+      "severity": 9,
+      "impact": 8,
+      "priority_score": 72,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "recommended_action": "Fix app crashes and improve overall app stability to improve user experience."
+    },
+    {
+      "title": "Poor Music Discovery",
+      "description": "Users are frustrated with the poor music discovery features, which make it difficult to find new music and artists.",
+      "category": "Top Frustration",
+      "severity": 7,
+      "impact": 6,
+      "priority_score": 42,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "recommended_action": "Improve music discovery features by enhancing recommendation algorithms and providing more exposure to new artists."
+    },
+    {
+      "title": "Limited Offline Mode",
+      "description": "Users are frustrated with the limited offline mode, which does not allow them to listen to music without an internet connection.",
+      "category": "Top Frustration",
+      "severity": 6,
+      "impact": 5,
+      "priority_score": 30,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "recommended_action": "Improve offline mode by allowing users to download music for offline playback and reducing loading times."
+    },
+    {
+      "title": "Poor Customer Support",
+      "description": "Users are frustrated with the poor customer support, which does not provide helpful solutions to their problems.",
+      "category": "Top Frustration",
+      "severity": 5,
+      "impact": 4,
+      "priority_score": 20,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "recommended_action": "Improve customer support by increasing response times and providing more helpful solutions."
+    }
+  ],
+  "feature_requests": [
+    {
+      "title": "Offline Mode Improvement",
+      "description": "Users want to be able to listen to music offline without interruptions, and with better download management.",
+      "category": "Feature Request",
+      "severity": 8,
+      "impact": 9,
+      "priority_score": 72,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers",
+        "Free Users"
+      ],
+      "recommended_action": "Improve offline mode by allowing users to download music for offline playback and reducing loading times."
+    },
+    {
+      "title": "Ad-Free Experience",
+      "description": "Users want an ad-free experience, or at least the option to pay for one, as the current ad frequency is frustrating.",
+      "category": "Feature Request",
+      "severity": 9,
+      "impact": 8,
+      "priority_score": 72,
+      "affected_segments": [
+        "Casual Listeners",
+        "Free Users"
+      ],
+      "recommended_action": "Offer an ad-free option, or reduce ad frequency to improve user experience."
+    },
+    {
+      "title": "Improved Music Discovery",
+      "description": "Users want better music discovery features, such as improved recommendations and more exposure to new artists.",
+      "category": "Feature Request",
+      "severity": 6,
+      "impact": 7,
+      "priority_score": 42,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "recommended_action": "Improve music discovery features by enhancing recommendation algorithms and providing more exposure to new artists."
+    },
+    {
+      "title": "Enhanced Playlist Management",
+      "description": "Users want better playlist management features, such as the ability to choose specific songs and manage large playlists.",
+      "category": "Feature Request",
+      "severity": 7,
+      "impact": 6,
+      "priority_score": 42,
+      "affected_segments": [
+        "Power Users",
+        "Premium Subscribers"
+      ],
+      "recommended_action": "Enhance playlist management features by allowing users to choose specific songs and manage large playlists more efficiently."
+    },
+    {
+      "title": "Better Customer Support",
+      "description": "Users want better customer support, including more responsive and helpful support teams.",
+      "category": "Feature Request",
+      "severity": 5,
+      "impact": 5,
+      "priority_score": 25,
+      "affected_segments": [
+        "Casual Listeners",
+        "Premium Subscribers"
+      ],
+      "recommended_action": "Improve customer support by increasing response times and providing more helpful solutions."
+    }
+  ],
+  "priority_matrix": {
+    "do_now": [
+      "Excessive Ad Frequency",
+      "App Crashes and Bugs"
+    ],
+    "quick_wins": [
+      "Poor Music Discovery",
+      "Limited Offline Mode"
+    ],
+    "plan": [
+      "Poor Customer Support"
+    ],
+    "backlog": [
+      "Enhanced Playlist Management"
+    ]
+  },
+  "recommendations": [
+    {
+      "title": "Reduce Ad Frequency",
+      "description": "Reduce ad frequency to improve user experience and reduce frustration.",
+      "timeframe": "Immediate",
+      "actionable_steps": [
+        "Analyze ad frequency data",
+        "Adjust ad frequency algorithm",
+        "Monitor user feedback"
+      ]
+    },
+    {
+      "title": "Fix App Crashes",
+      "description": "Fix app crashes and improve overall app stability to improve user experience.",
+      "timeframe": "Immediate",
+      "actionable_steps": [
+        "Identify crash causes",
+        "Implement bug fixes",
+        "Test and deploy updates"
+      ]
+    },
+    {
+      "title": "Improve Music Discovery",
+      "description": "Improve music discovery features by enhancing recommendation algorithms and providing more exposure to new artists.",
+      "timeframe": "Short-term",
+      "actionable_steps": [
+        "Analyze user listening habits",
+        "Enhance recommendation algorithms",
+        "Test and deploy updates"
+      ]
+    },
+    {
+      "title": "Improve Offline Mode",
+      "description": "Improve offline mode by allowing users to download music for offline playback and reducing loading times.",
+      "timeframe": "Short-term",
+      "actionable_steps": [
+        "Analyze offline mode usage",
+        "Implement download management features",
+        "Test and deploy updates"
+      ]
+    },
+    {
+      "title": "Improve Customer Support",
+      "description": "Improve customer support by increasing response times and providing more helpful solutions.",
+      "timeframe": "Long-term",
+      "actionable_steps": [
+        "Analyze customer support data",
+        "Implement support team training",
+        "Monitor and improve response times"
+      ]
+    }
+  ]
+}
