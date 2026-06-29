@@ -12,6 +12,7 @@ export default function PipelinePage() {
   const [isPolling, setIsPolling] = useState(false);
 
   const startPipeline = async () => {
+    alert('Button clicked!');
     console.log('[Pipeline] Start button clicked');
     setError('');
     try {
