@@ -11,20 +11,10 @@ export default function PipelinePage() {
   const [error, setError] = useState('');
   const [isPolling, setIsPolling] = useState(false);
 
-  useEffect(() => {
-    console.log('[Pipeline] Component mounted');
-    console.log('[Pipeline] isPolling:', isPolling);
-  }, []);
-
   const startPipeline = async () => {
-    alert('Button clicked!');
-    console.log('[Pipeline] Start button clicked');
-    console.log('[Pipeline] isPolling:', isPolling);
     setError('');
     try {
-      console.log('[Pipeline] Calling runPipeline API...');
       const result = await runPipeline();
-      console.log('[Pipeline] Pipeline started:', result);
       setPipelineStatus({
         run_id: result.run_id,
         status: 'running',
@@ -34,8 +24,8 @@ export default function PipelinePage() {
       });
       setIsPolling(true);
     } catch (err) {
-      console.error('[Pipeline] Error starting pipeline:', err);
       setError('Failed to start pipeline');
+      console.error(err);
     }
   };
 

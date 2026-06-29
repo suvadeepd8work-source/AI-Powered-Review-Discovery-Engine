@@ -28,7 +28,6 @@ async function fetchWithRetry<T>(
   retries = 3
 ): Promise<T> {
   const fullUrl = `${API_BASE_URL}${url}`;
-  console.log(`[API] Fetching: ${fullUrl}`);
   
   for (let i = 0; i < retries; i++) {
     try {
@@ -40,17 +39,12 @@ async function fetchWithRetry<T>(
         },
       });
 
-      console.log(`[API] Response status: ${response.status}`);
-
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
-      console.log(`[API] Success: ${url}`);
-      return data;
+      return await response.json();
     } catch (error) {
-      console.error(`[API] Error (attempt ${i + 1}/${retries}):`, error);
       if (i === retries - 1) throw error;
       // Exponential backoff: 1s, 2s, 4s
       await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));
