@@ -25,12 +25,12 @@ env/
 Thumbs.db
 
 # Pipeline runtime data (generated at execution time, not source)
-# phase1_data_ingestion/data/reviews.json
-# phase2_agent_analysis/data/input/
-# phase2_agent_analysis/data/output/*.json
-# phase2_agent_analysis/data/output/*.md
-# executive_report.json
-# executive_report.md
+phase1_data_ingestion/data/reviews.json
+phase2_agent_analysis/data/input/
+phase2_agent_analysis/data/output/*.json
+phase2_agent_analysis/data/output/*.md
+executive_report.json
+executive_report.md
 
 # Orchestration logs (per-run JSONL files)
 phase3_orchestration/logs/
