@@ -158,11 +158,11 @@ class MultiSourceReviewCollector:
             
         return synthetics
 
-    def execute_collection(self, target_total: int = 8000):
+    def execute_collection(self, target_total: int = 2000):
         # Fetch raw data
-        reviews_play = self.fetch_play_store_reviews(count=4000)
-        reviews_apple = self.fetch_app_store_reviews(count=500)
-        reviews_reddit = self.fetch_reddit_posts(count=500)
+        reviews_play = self.fetch_play_store_reviews(count=1000)
+        reviews_apple = self.fetch_app_store_reviews(count=125)
+        reviews_reddit = self.fetch_reddit_posts(count=125)
         
         real_collected = len(reviews_play) + len(reviews_apple) + len(reviews_reddit)
         remaining = target_total - real_collected
