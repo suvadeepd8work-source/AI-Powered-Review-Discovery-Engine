@@ -39,7 +39,7 @@ load_dotenv()
 
 INPUT_FILE = os.path.join("phase2_agent_analysis", "data", "output", "analyzed_reviews.json")
 OUTPUT_DIR = os.path.join("phase2_agent_analysis", "data", "output")
-BATCH_SIZE = 50
+BATCH_SIZE = 100
 
 # --- Predefined Keywords & Descriptions for Fallback & Normalization ---------
 THEME_KEYWORDS: Dict[str, List[str]] = {

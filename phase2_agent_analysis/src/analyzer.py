@@ -39,7 +39,7 @@ load_dotenv()
 
 INPUT_FILE = os.path.join("phase2_agent_analysis", "data", "output", "filtered_reviews.json")
 OUTPUT_DIR = os.path.join("phase2_agent_analysis", "data", "output")
-BATCH_SIZE = 15
+BATCH_SIZE = 30
 
 
 def setup_logger(output_dir: str):

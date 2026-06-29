@@ -42,7 +42,7 @@ load_dotenv()
 
 INPUT_FILE = os.path.join("phase2_agent_analysis", "data", "output", "analyzed_reviews.json")
 OUTPUT_DIR = os.path.join("phase2_agent_analysis", "data", "output")
-BATCH_SIZE = 60  # Reviews per batch sent to the LLM
+BATCH_SIZE = 120  # Reviews per batch sent to the LLM
 
 
 # --- Predefined Segment Keywords & Descriptions for Fallback -----------------
