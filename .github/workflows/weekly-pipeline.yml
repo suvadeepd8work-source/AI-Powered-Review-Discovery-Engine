@@ -48,6 +48,22 @@ jobs:
           mkdir -p phase2_agent_analysis/data/output
           mkdir -p phase5_frontend_ui/public/data
       
+      - name: Clear Python cache
+        run: |
+          find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+          find . -type f -name "*.pyc" -delete 2>/dev/null || true
+      
+      - name: Verify orchestrator.py has json import
+        run: |
+          if grep -q "import json" phase3_orchestration/src/orchestrator.py; then
+            echo "✓ json import found in orchestrator.py"
+          else
+            echo "✗ json import NOT found in orchestrator.py"
+            echo "File content:"
+            head -35 phase3_orchestration/src/orchestrator.py
+            exit 1
+          fi
+      
       - name: Execute pipeline
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
