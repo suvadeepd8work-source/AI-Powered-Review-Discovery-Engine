@@ -44,7 +44,20 @@ app.add_middleware(
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
+
+# Explicit OPTIONS handler for preflight requests
+@app.options("/{path:path}")
+async def options_handler(path: str):
+    return Response(
+        status_code=200,
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "*",
+        },
+    )
 
 # ── Global error handlers ─────────────────────────────────────────────────────
 
