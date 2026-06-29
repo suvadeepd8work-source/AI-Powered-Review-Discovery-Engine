@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { Sparkles, Play, CheckCircle, AlertCircle, Clock } from 'lucide-react';
 import MetricCard from '@/components/MetricCard';
 import { Database, ShieldAlert, BarChart3 } from 'lucide-react';
@@ -9,16 +12,25 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import SkeletonCard from '@/components/SkeletonCard';
 import ErrorAlert from '@/components/ErrorAlert';
 
-export default async function OverviewPage() {
-  let latestData: LatestAnalysis | null = null;
-  let error = null;
+export default function OverviewPage() {
+  const [latestData, setLatestData] = useState<LatestAnalysis | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  try {
-    latestData = await getLatestAnalysis();
-  } catch (err) {
-    error = 'Failed to fetch latest analysis data';
-    console.error(err);
-  }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getLatestAnalysis();
+        setLatestData(data);
+      } catch (err) {
+        setError('Failed to fetch latest analysis data');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   const formatTimestamp = (timestamp: string | undefined) => {
     if (!timestamp) return 'N/A';
@@ -86,11 +98,15 @@ export default async function OverviewPage() {
         {/* Sentiment Distribution */}
         <div className="card">
           <h3 className="text-lg font-semibold mb-4">Sentiment Distribution</h3>
-          {latestData?.sentiment_distribution ? (
-            <SentimentChart data={latestData.sentiment_distribution} />
-          ) : (
+          {loading ? (
             <div className="flex items-center justify-center h-[300px]">
               <LoadingSpinner size={32} />
+            </div>
+          ) : latestData?.sentiment_distribution ? (
+            <SentimentChart data={latestData.sentiment_distribution} />
+          ) : (
+            <div className="flex items-center justify-center h-[300px] text-slate-400">
+              No data available
             </div>
           )}
         </div>
@@ -152,7 +168,9 @@ export default async function OverviewPage() {
       </div>
 
       {/* Top Insights */}
-      {latestData?.data_available ? (
+      {loading ? (
+        <SkeletonCard />
+      ) : latestData?.data_available ? (
         <div className="card">
           <h3 className="text-lg font-semibold mb-4">Top Insights</h3>
           <div className="space-y-4">
@@ -171,7 +189,10 @@ export default async function OverviewPage() {
           </div>
         </div>
       ) : (
-        <SkeletonCard />
+        <div className="card">
+          <h3 className="text-lg font-semibold mb-4">Top Insights</h3>
+          <p className="text-slate-400">Run the pipeline to generate insights</p>
+        </div>
       )}
     </div>
   );
