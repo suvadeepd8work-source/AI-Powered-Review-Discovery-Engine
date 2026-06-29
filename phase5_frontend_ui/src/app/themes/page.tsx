@@ -1,18 +1,30 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { Layers, Tag } from 'lucide-react';
 import { getThemes } from '@/lib/api';
 import type { ThemeCluster } from '@/lib/types';
 import ErrorAlert from '@/components/ErrorAlert';
 
-export default async function ThemesPage() {
-  let themes: ThemeCluster[] = [];
-  let error = null;
+export default function ThemesPage() {
+  const [themes, setThemes] = useState<ThemeCluster[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  try {
-    themes = await getThemes();
-  } catch (err) {
-    error = 'Failed to fetch theme clusters';
-    console.error(err);
-  }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getThemes();
+        setThemes(data);
+      } catch (err) {
+        setError('Failed to fetch theme clusters');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="space-y-8 animate-fade-in">
@@ -54,10 +66,10 @@ export default async function ThemesPage() {
                 </span>
                 <div className="flex gap-2">
                   <span className="text-emerald-400">
-                    {theme.sentiment_distribution.positive}+
+                    {theme.sentiment_distribution?.positive || 0}+
                   </span>
                   <span className="text-rose-400">
-                    {theme.sentiment_distribution.negative}-
+                    {theme.sentiment_distribution?.negative || 0}-
                   </span>
                 </div>
               </div>
