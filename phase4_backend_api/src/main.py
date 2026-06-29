@@ -35,29 +35,15 @@ app = FastAPI(
 
 # ── CORS ──────────────────────────────────────────────────────────────────────
 
-# Get allowed origins from environment variable, default to all origins for development
-allowed_origins = os.getenv("ALLOWED_ORIGINS", "*").split(",")
-
+# Configure CORS to allow all origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=["*"],
     allow_credentials=False,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
     expose_headers=["*"],
 )
-
-# Explicit OPTIONS handler for preflight requests
-@app.options("/{path:path}")
-async def options_handler(path: str):
-    return Response(
-        status_code=200,
-        headers={
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "*",
-            "Access-Control-Allow-Headers": "*",
-        },
-    )
 
 # ── Global error handlers ─────────────────────────────────────────────────────
 
