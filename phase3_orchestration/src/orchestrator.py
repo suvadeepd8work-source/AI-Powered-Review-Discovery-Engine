@@ -252,6 +252,7 @@ class AgentPipelineOrchestrator:
 
             # ── Agent 2: Data Cleaner ─────────────────────────────────────
             def run_cleaner():
+                import json
                 cleaner = DataCleanerAgent(
                     input_path=dest_reviews,
                     output_dir=os.path.join(root_dir, "phase2_agent_analysis", "data", "output"),
