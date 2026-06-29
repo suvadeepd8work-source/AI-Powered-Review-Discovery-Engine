@@ -1,18 +1,30 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { FileText, Download, Calendar } from 'lucide-react';
 import { getReport } from '@/lib/api';
 import type { Report } from '@/lib/types';
 import ErrorAlert from '@/components/ErrorAlert';
 
-export default async function ExecutiveSummaryPage() {
-  let report: Report | null = null;
-  let error = null;
+export default function ExecutiveSummaryPage() {
+  const [report, setReport] = useState<Report | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  try {
-    report = await getReport();
-  } catch (err) {
-    error = 'Failed to fetch executive report';
-    console.error(err);
-  }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getReport();
+        setReport(data);
+      } catch (err) {
+        setError('Failed to fetch executive report');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="space-y-8 animate-fade-in">

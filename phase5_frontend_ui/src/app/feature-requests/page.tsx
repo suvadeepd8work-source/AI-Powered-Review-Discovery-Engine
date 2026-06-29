@@ -1,18 +1,30 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { Lightbulb, Plus } from 'lucide-react';
 import { getInsights } from '@/lib/api';
 import type { Insight } from '@/lib/types';
 import ErrorAlert from '@/components/ErrorAlert';
 
-export default async function FeatureRequestsPage() {
-  let insights: Insight[] = [];
-  let error = null;
+export default function FeatureRequestsPage() {
+  const [insights, setInsights] = useState<Insight[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  try {
-    insights = await getInsights();
-  } catch (err) {
-    error = 'Failed to fetch feature requests';
-    console.error(err);
-  }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getInsights();
+        setInsights(data);
+      } catch (err) {
+        setError('Failed to fetch feature requests');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   // Filter insights for feature requests
   const featureRequests = insights.filter((insight) => 

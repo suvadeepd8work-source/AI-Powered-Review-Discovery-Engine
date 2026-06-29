@@ -1,18 +1,30 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { Users, Target } from 'lucide-react';
 import { getSegments } from '@/lib/api';
 import type { UserSegment } from '@/lib/types';
 import ErrorAlert from '@/components/ErrorAlert';
 
-export default async function SegmentsPage() {
-  let segments: UserSegment[] = [];
-  let error = null;
+export default function SegmentsPage() {
+  const [segments, setSegments] = useState<UserSegment[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  try {
-    segments = await getSegments();
-  } catch (err) {
-    error = 'Failed to fetch user segments';
-    console.error(err);
-  }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getSegments();
+        setSegments(data);
+      } catch (err) {
+        setError('Failed to fetch user segments');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="space-y-8 animate-fade-in">
