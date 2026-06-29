@@ -11,9 +11,15 @@ export default function PipelinePage() {
   const [error, setError] = useState('');
   const [isPolling, setIsPolling] = useState(false);
 
+  useEffect(() => {
+    console.log('[Pipeline] Component mounted');
+    console.log('[Pipeline] isPolling:', isPolling);
+  }, []);
+
   const startPipeline = async () => {
     alert('Button clicked!');
     console.log('[Pipeline] Start button clicked');
+    console.log('[Pipeline] isPolling:', isPolling);
     setError('');
     try {
       console.log('[Pipeline] Calling runPipeline API...');
