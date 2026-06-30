@@ -242,7 +242,7 @@ class AgentPipelineOrchestrator:
                 collector = MultiSourceReviewCollector(
                     output_dir=os.path.join(root_dir, "phase1_data_ingestion", "data")
                 )
-                collector.execute_collection(target_total=2000)
+                collector.execute_collection(target_total=1000)
                 src = os.path.join(root_dir, "phase1_data_ingestion", "data", "reviews.json")
                 if not os.path.exists(src):
                     raise FileNotFoundError(f"Collector produced no output at {src}")
