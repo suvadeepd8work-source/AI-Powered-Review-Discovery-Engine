@@ -81,7 +81,15 @@ export async function getInsights(): Promise<Insight[]> {
 }
 
 export async function getReport(): Promise<Report> {
-  return fetchWithRetry('/api/insights/report');
+  const response = await fetchWithRetry('/api/insights/report') as any;
+  
+  // Transform backend response to match frontend expected format
+  return {
+    generated_at: response.generated_at || new Date().toISOString(),
+    summary: response.json_report?.executive_summary || response.summary || '',
+    content: response.markdown_report || '',
+    insights: [], // Backend doesn't provide insights in this format
+  };
 }
 
 export async function getLatestAnalysis(): Promise<LatestAnalysis> {
