@@ -113,10 +113,30 @@ class DataCleanerAgent:
 
     def load_reviews(self) -> list:
         print(f"[Cleaner] Loading reviews from {self.input_path}...")
-        with open(self.input_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        print(f"[Cleaner] Loaded {len(data)} raw reviews.")
-        return data
+        try:
+            with open(self.input_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            print(f"[Cleaner] Loaded {len(data)} raw reviews.")
+            return data
+        except json.JSONDecodeError as e:
+            print(f"[Cleaner] ERROR: Malformed JSON in {self.input_path}: {e}")
+            print(f"[Cleaner] Attempting to recover by reading as JSONL...")
+            # Try to recover by reading line by line (JSONL format)
+            data = []
+            try:
+                with open(self.input_path, 'r', encoding='utf-8') as f:
+                    for line_num, line in enumerate(f, 1):
+                        line = line.strip()
+                        if line:
+                            try:
+                                data.append(json.loads(line))
+                            except json.JSONDecodeError as line_e:
+                                print(f"[Cleaner] Skipping malformed line {line_num}: {line_e}")
+                print(f"[Cleaner] Recovered {len(data)} reviews from JSONL format.")
+                return data
+            except Exception as recovery_e:
+                print(f"[Cleaner] Recovery failed: {recovery_e}")
+                raise ValueError(f"Cannot load reviews from {self.input_path}. File may be corrupted.")
 
     @staticmethod
     def is_empty(text: str) -> bool:
