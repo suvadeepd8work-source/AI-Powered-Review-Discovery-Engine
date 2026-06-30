@@ -102,7 +102,18 @@ export async function runPipeline(): Promise<{ run_id: string }> {
 }
 
 export async function getPipelineStatus(runId: string): Promise<PipelineStatus> {
-  return fetchWithRetry(`/api/pipeline/status/${runId}`);
+  const response = await fetchWithRetry(`/api/pipeline/status/${runId}`) as any;
+  
+  // Transform backend response to match frontend expected format
+  return {
+    run_id: response.run_id,
+    status: response.status,
+    current_phase: response.current_phase,
+    phases: [], // Backend doesn't provide phase details
+    started_at: response.start_time,
+    completed_at: response.end_time,
+    error: response.error_message,
+  };
 }
 
 // Health API
